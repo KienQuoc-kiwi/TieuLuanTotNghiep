@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar trái */
+.menu {
+    width: 250px;
+    background-color: #343a40;
+    color: #fff;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+
+.menu ul.admincp_list {
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul.admincp_list li {
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu ul.admincp_list li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+}
+
+.menu ul.admincp_list li:hover {
+    background-color: #495057;
+}
+
+/* Header */
+.title_admin {
+    padding: 20px 20px 20px 270px;
+    background-color: #fff;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Nội dung chính */
+.main {
+    margin-left: 0px;
+    padding: 30px;
+    flex-grow: 1;
+    background-color: #f4f6f9;
+}
+
+/* Đăng xuất */
+p a {
+    color: red;
+    float: right;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+/* Dashboard hoặc module box */
+.dashboard-box,
+.module-box {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}

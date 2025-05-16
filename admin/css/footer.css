@@ -1,0 +1,98 @@
+/* Main footer structure */
+.main-footer {
+  font-family: Arial, sans-serif;
+  color: #000;
+  background-color: #fff;
+  padding: 0;
+}
+
+/* Banner */
+.join-banner {
+  background-color: #fce200;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.join-banner h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.join-btn {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #000;
+  transition: all 0.3s ease;
+}
+
+.join-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Columns section */
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 60px;
+  background-color: #fff;
+}
+
+.footer-col {
+  flex: 1 1 180px;
+  margin: 10px 20px;
+  min-width: 180px;
+}
+
+.footer-col h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-col ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Social icons */
+.social-icons a {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  background-color: #1d1d1d;
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  padding: 15px 10px;
+}

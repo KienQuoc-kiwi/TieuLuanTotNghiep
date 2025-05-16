@@ -1,0 +1,187 @@
+/* Vùng thêm danh mục sản phẩm */
+.themdanhmucsp {
+    margin-left: 230px;
+    padding: 30px;
+    background-color: #f5f6fa;
+}
+
+.themdanhmucsp p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.themdanhmucsp table {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    border-collapse: collapse;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.themdanhmucsp th {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px;
+}
+
+.themdanhmucsp td {
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    font-size: 14px;
+}
+
+.themdanhmucsp input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.themdanhmucsp input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.themdanhmucsp input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Vùng liệt kê danh mục */
+.lietkedanhmuc {
+    margin-left: 230px;
+    padding: 30px;
+}
+
+.lietkedanhmuc p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.lietkedanhmuc table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.lietkedanhmuc table th,
+.lietkedanhmuc table td {
+    border: 1px solid #dee2e6;
+    padding: 12px 14px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.lietkedanhmuc table th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+}
+
+.lietkedanhmuc a {
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 13px;
+    margin-right: 6px;
+    color: white;
+}
+
+.lietkedanhmuc a[href*="xuly.php"] {
+    background-color: #dc3545;
+}
+
+.lietkedanhmuc a[href*="xuly.php"]:hover {
+    background-color: #bd2130;
+}
+
+.lietkedanhmuc a[href*="&query=sua"] {
+    background-color: #007bff;
+}
+
+.lietkedanhmuc a[href*="&query=sua"]:hover {
+    background-color: #0056b3;
+}
+
+/*sua danh muc*/
+/* Vùng sửa danh mục sản phẩm */
+.suadanhmucsp {
+    margin-left: 230px;
+    padding: 30px;
+    background-color: #f5f6fa;
+}
+
+.suadanhmucsp p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.suadanhmucsp form {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.suadanhmucsp table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.suadanhmucsp th {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px 6px 0 0;
+}
+
+.suadanhmucsp td {
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #dee2e6;
+}
+
+.suadanhmucsp input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.suadanhmucsp input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.suadanhmucsp input[type="submit"]:hover {
+    background-color: #218838;
+}

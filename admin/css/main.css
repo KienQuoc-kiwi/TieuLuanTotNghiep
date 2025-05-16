@@ -1,0 +1,84 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.05);
+}
+
+.button-add {
+    background-color: #ff8c00;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 12px 10px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f9f9f9;
+    color: #333;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.thumbnail {
+    width: 40px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.status {
+    font-weight: bold;
+    color: #28a745; /* màu xanh lá cho "Còn hàng" */
+}
+
+.action-links a {
+    color: #0073aa;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.action-links a:hover {
+    text-decoration: underline;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+h2{
+    font-size: 28px;
+    color: #2c3e50;
+    margin-left: 272px;
+}

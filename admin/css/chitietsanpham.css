@@ -1,0 +1,163 @@
+/* Layout tổng thể */
+.product-detail-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+    font-family: 'Helvetica Neue', sans-serif;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Ảnh sản phẩm */
+.product-image-section img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Thông tin sản phẩm */
+.product-info-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Tên sản phẩm */
+.product-name {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* Giá và mã */
+.product-price {
+    font-size: 24px;
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.product-code,
+.product-category {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Chọn size */
+.product-size-options {
+    margin-top: 10px;
+}
+
+.product-size-options label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.product-size-options select {
+    padding: 10px;
+    font-size: 16px;
+    width: 150px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+.product-size-options select:focus {
+    border-color: #000;
+}
+
+/* Nút giỏ hàng */
+.add-to-cart-btn {
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    margin-top: 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #333;
+}
+
+/* Nút yêu thích */
+.favourite-btn {
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.favourite-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Phần bình luận */
+.product-comment-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.product-comment-section h3 {
+    margin-bottom: 15px;
+}
+
+.content {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.product-comment-section input[type="submit"] {
+    background-color: black;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.product-comment-section input[type="submit"]:hover {
+    background-color: #333;
+}
+
+/* Bình luận hiển thị */
+.product-rating {
+    border-top: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.product-rating strong {
+    font-weight: 600;
+    color: #222;
+}
+
+.product-rating em {
+    font-size: 13px;
+    color: #777;
+}
+
+.product-rating p {
+    margin-top: 5px;
+    font-size: 15px;
+}

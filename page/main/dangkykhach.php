@@ -64,8 +64,8 @@ if (isset($_POST['dangkyk'])) {
             <a href="#">Forgot Password? <span>Click here</span></a>
             <a href="dangkykhach">New User? <span>Register here</span></a>
           </div> -->
-          <button type="submit" class="login-btn" name="dangkyk">REGISTER</button>
-          <p class="or-login">Or Login with</p>
+          <button type="submit" class="login-btn" name="dangkyk">ĐĂNG KÝ</button>
+          <a href="dangnhapkhach.php"><p class="or-login">HOẶC ĐĂNG NHẬP NẾU CÓ TÀI KHOẢN</p></a>
           <div class="social-icons">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>

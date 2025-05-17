@@ -40,7 +40,7 @@
                     include("../admin/login.php");
                 }
                 elseif($tam=='camon'){ 
-                    include("main/camon.php");
+                    include("page/main/camon.php");
                 }
                 elseif($tam=='doimatkhau'){ 
                     include("main/doimatkhau.php");

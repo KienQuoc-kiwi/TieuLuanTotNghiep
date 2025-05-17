@@ -52,16 +52,16 @@
         <tr>
             <td colspan="8">
               <p style="float:left;">Tổng tiền: <?php echo number_format( $tongtien,0,',','.').'vnđ'?><br></p>
-              <p style="float:right;"><a href="main/themgiohang.php?xoatatca=1">Xóa tất cả sản phẩm </a></p>
+              <p style="float:right;"><a href="page/main/themgiohang.php?xoatatca=1">Xóa tất cả sản phẩm </a></p>
               <div style="clear:both;"></div>
             <?php
               if(isset($_SESSION['dangkyk'])){
             ?>
-            <p><a href="main/thanhtoan.php"><input  class="dathang" name = "dathang" type="submit" value="Đặt hàng"></p></a>
+            <p><a href="page/main/thanhtoan.php"><input  class="dathang" name = "dathang" type="submit" value="Đặt hàng"></p></a>
             <?php
               }else{
                 ?>
-                  <p><a href="main/dangkykhach.php?quanly=dangkyk"><input  class="dangkydathang" name = "dangkydathang" type="submit" value="Đăng ký Đặt hàng"></p></a>
+                  <p><a href="page/main/dangkykhach.php?quanly=dangkyk"><input  class="dangkydathang" name = "dangkydathang" type="submit" value="Đăng ký Đặt hàng"></p></a>
                   <?php
                   }
                 ?>

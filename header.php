@@ -27,6 +27,6 @@
             <span aria-hidden="true" data-auto-id="profile-notification-count" class="_notification_kwit6_1">1</span>
         </button>
         <a href="" class="gl-icon-wrapper"><i class="fa-regular fa-heart"></i></a>
-        <a aria-label="Đi đến giỏ hàng" manual_cm_sp="header-_-Thanh toán" href="" class="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a aria-label="Đi đến giỏ hàng" manual_cm_sp="header-_-Thanh toán" href="page/main/giohang.php" class="cart"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
 </header>

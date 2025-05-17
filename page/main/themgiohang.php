@@ -42,7 +42,7 @@ if (isset($_GET['cong'])) {
             }
         }
         header('Location:../../index.php?quanly=giohang');
-exit();
+        exit();
     }
 }
 //giảm số lượng
@@ -85,7 +85,7 @@ if (isset($_GET['tru'])) {
             }
         }
         header('Location:../../index.php?quanly=giohang');
-exit();
+        exit();
     }
 }
 //xóa sản phẩm
@@ -104,14 +104,14 @@ if (isset($_SESSION['cart']) && isset($_GET['xoa'])) {
         }
         $_SESSION['cart'] = $product;
         header('Location:../../index.php?quanly=giohang');
-exit();
+        exit();
     }
 }
 //xóa tất cả
 if (isset($_GET['xoatatca']) && $_GET['xoatatca'] == 1) {
     unset($_SESSION['cart']);
     header('Location:../../index.php?quanly=giohang');
-exit();
+    exit();
 }
 if (isset($_POST['themgiohang'])) {
     //session_destroy();
@@ -167,5 +167,5 @@ if (isset($_POST['themgiohang'])) {
         }
     }
     header('Location:../../index.php?quanly=giohang');
-exit();
+    exit();
 }

@@ -47,7 +47,7 @@ if (isset($_POST['dangnhap'])) {
                         <i class="fas fa-lock"></i>
                     </div>
                     <div class="links">
-                        <a href="#">Quên Mật Khẩu? <span>Click here</span></a>
+                        <a href="doimatkhau.php">Quên Mật Khẩu? <span>Click here</span></a>
                         <a href="dangkykhach.php">Người Dùng Mới? <span>Đăng ký</span></a>
                     </div>
                     <button type="submit" class="login-btn" name="dangnhap">LOGIN</button>

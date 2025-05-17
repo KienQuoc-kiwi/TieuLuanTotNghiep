@@ -39,21 +39,21 @@ while($row_chitiet = mysqli_fetch_array($query_chitiet)) {
 
 <!-- Bình luận -->
 <div class="product-comment-section">
-    <form method="POST" action="main/comment/xulycontent.php">
+    <form method="POST" action="page/main/binhluan.php">
         <input type="hidden" name="id_sanpham_test" value="<?php echo $_GET['id']; ?>">
         <textarea class="content" name="content" placeholder="Mời bạn chia sẻ cảm nhận"></textarea>
         <input type="submit" name="thembinhluan" value="Gửi bình luận">
-        <link rel="stylesheet" href="../admin/css/sanpham.css">
+        <!-- <link rel="stylesheet" href="../admin/css/sanpham.css"> -->
     </form>
 
     <h3>Bình luận:</h3>
     <?php
-    $sql_lietke_content = "SELECT tenkhachhang, binhluan.id_khachhang, sanpham.id_sanpham, binhluan.noidung, ngaybinhluan FROM binhluan, dangkykhach, sanpham WHERE binhluan.id_khachhang = dangkykhach.id_dkkhach AND sanpham.id_sanpham = binhluan.id_sanpham AND sanpham.id_sanpham = '$_GET[id]'";
+    $sql_lietke_content = "SELECT ten_khach, binhluan.id_khach, sanpham.id_sanpham, binhluan.noidung, ngaybinhluan FROM binhluan, khachhang, sanpham WHERE binhluan.id_khach = khachhang.id_khach AND sanpham.id_sanpham = binhluan.id_sanpham AND sanpham.id_sanpham = '$_GET[id]'";
     $query_lietke_content = mysqli_query($mysqli,$sql_lietke_content);
     while($row = mysqli_fetch_array($query_lietke_content)) {
     ?>
         <div class="product-rating">
-            <strong><?php echo $row['tenkhachhang']?></strong> - <em><?php echo $row['ngaybinhluan']?></em>
+            <strong><?php echo $row['ten_khach']?></strong> - <em><?php echo $row['ngaybinhluan']?></em>
             <p><?php echo $row['noidung'] ?></p>
         </div>
     <?php } ?>

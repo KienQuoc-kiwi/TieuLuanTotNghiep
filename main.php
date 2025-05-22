@@ -1,7 +1,41 @@
 <section class="collection-tab-home">
-    <div class="container">
-        <div class="banner"><img src="img/mainbanner.png" alt="Poster"> </div>
+
+<div class="banner-layout">
+    <!-- Slide bên trái -->
+    <div class="banner-side swiper leftSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/banner-left1.png" alt=""></div>
+            <div class="swiper-slide"><img src="img/banner-left2.png" alt="lỗi"></div>
+        </div>
+        <!-- Pagination & Navigation riêng -->
+
+        <!-- <div class="swiper-pagination left-pagination"></div>
+        <div class="swiper-button-next left-next"></div>
+        <div class="swiper-button-prev left-prev"></div> -->
     </div>
+
+    <!-- Banner trung tâm cố định -->
+    <div class="banner-center">
+        <img src="img/banner-center.png" alt="Banner trung tâm">
+    </div>
+
+    <!-- Slide bên phải -->
+    <div class="banner-side swiper rightSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/banner-right1.png" alt=""></div>
+            <div class="swiper-slide"><img src="img/banner-right2.png" alt="lỗi"></div>
+        </div>
+        <!-- Pagination & Navigation riêng -->
+
+        <!-- <div class="swiper-pagination right-pagination"></div>
+        <div class="swiper-button-next right-next"></div>
+        <div class="swiper-button-prev right-prev"></div> -->
+
+    </div>
+</div>
+
+
+
     <div class="sub-tab-collection">
         <div class="item-tab active" data-handle="litedash-sale-20" data-section="is-section-1" data-total="1"></div>
     </div>

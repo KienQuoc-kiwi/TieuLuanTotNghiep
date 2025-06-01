@@ -4,7 +4,7 @@ $sql_lietke_danhmucsp = "SELECT * from danhmuc order by thutu asc";
 $query_lietke_danhmucsp = mysqli_query($mysqli, $sql_lietke_danhmucsp);
 ?>
 <div class="lietkedanhmuc">
-    <p>Liệt kê sản phẩm</p>
+    <p>Liệt kê danh mục sản phẩm</p>
     <table style="width:100%" border="1" style="border-collapse: collapse;">
         <tr>
             <th>Id</th>

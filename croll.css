@@ -1,0 +1,68 @@
+.sectionContent,
+.row-edit,
+.pro-loop {
+  width: 100%;
+  overflow-x: auto; /* Thay visible bằng auto để hỗ trợ thanh cuộn */
+}
+
+.horizontal-scroll-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px 0;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 4px;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.product-card {
+  flex: 0 0 auto;
+  width: 220px;
+  scroll-snap-align: start;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fff;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.title_product {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.price_product {
+  color: red;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  .product-card {
+    width: 160px;
+  }
+}

@@ -1,7 +1,7 @@
 /* Vùng thêm & sửa nhân viên */
 .themnv, .suanv {
-    margin-left: 230px;
-    padding: 30px;
+    margin-left: 150px;
+    padding: 0px;
     background-color: #f5f6fa;
 }
 
@@ -55,8 +55,8 @@
 
 /* Vùng liệt kê nhân viên */
 .lietkenv {
-    margin-left: 230px;
-    padding: 30px;
+    margin-left: 150px;
+    padding: 0px;
 }
 
 .lietkenv table {
@@ -69,7 +69,7 @@
 }
 
 .lietkenv th {
-    background-color: #007bff;
+    background-color: #343a40;
     color: white;
     text-align: center;
     padding: 12px;

@@ -5,10 +5,10 @@ $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
 ?>
 
 <div class="lietke">
-    <p>Liệt kê sản phẩm</p>
+    <!-- <p>Tồn kho sản phẩm</p> -->
     <table style="width:100%" border="1" style="border-collapse: collapse;">
         <tr>
-            <th>Id</th>
+            <th class="id">Id</th>
             <th>Tên sản phẩm</th>
             <th>Hình ảnh</th>
             <th>Giá sp</th>

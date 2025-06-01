@@ -20,9 +20,10 @@
                 <td>Số điện thoại</td>
                 <td><input type="text" name="sdt"></td>
             </tr>
-            <tr>
-                <td colspan="2"><input type="submit" name="themnhanvien" value="Thêm nhân viên"></td>
-            </tr>
+            <!-- <tr>
+                <td colspan="2"></td>
+            </tr> -->
         </table>
+        <input type="submit" name="themnhanvien" value="Thêm nhân viên">
     </form>
 </div>

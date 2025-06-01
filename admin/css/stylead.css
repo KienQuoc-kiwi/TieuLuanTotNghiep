@@ -60,8 +60,8 @@ body {
 
 /* Nội dung chính */
 .main {
-    margin-left: 0px;
-    padding: 30px;
+    margin-left: 00px;
+    padding: 0px;
     flex-grow: 1;
     background-color: #f4f6f9;
 }

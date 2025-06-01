@@ -9,6 +9,7 @@
     $hinhanh = $_FILES['hinhanh']['name'];
     $hinhanh_tmp = $_FILES['hinhanh']['tmp_name'];
     $hinhanh = time().'_'.$hinhanh;
+    //
     $tomtat = $_POST['tomtat'];
     $noidung = $_POST['noidung'];
     $tinhtrang = $_POST['tinhtrang'];

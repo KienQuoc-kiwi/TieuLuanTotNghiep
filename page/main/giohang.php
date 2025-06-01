@@ -62,7 +62,9 @@
               }else{
                 ?>
                   <p><a href="page/main/dangkykhach.php?quanly=dangkyk"><input  class="dangkydathang" name = "dangkydathang" type="submit" value="Đăng ký Đặt hàng"></p></a>
+                  
                   <?php
+                  
                   }
                 ?>
               

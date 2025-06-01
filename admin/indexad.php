@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="css/danhmucsp.css">
     <link rel="stylesheet" href="css/donhang.css">
     <link rel="stylesheet" href="css/nhanvien.css">
+    <link rel="stylesheet" href="css/doanhthu.css">
 </head>
 <body>
-    <h2>Welcome to Admincp</h2>
+    <!-- <h2>Welcome to Admincp</h2> -->
     <div class="wrapper">
         <?php
         session_start();

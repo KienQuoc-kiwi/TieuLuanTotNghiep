@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="admin/css/pro.css">
     <link rel="stylesheet" href="admin/css/footer.css">
     <link rel="stylesheet" href="admin/css/listheader.css">
+    <link rel="stylesheet" href="croll.css">
     <!-- <link rel="stylesheet" href="admin/css/swipper.css"> -->
 
     <!-- Font + Icon -->

@@ -17,6 +17,24 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Swiper giữa
+    var centerSwiper = new Swiper('.centerSwiper', {
+        loop: true,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+        effect: 'fade',
+        pagination: {
+            el: '.center-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.center-next',
+            prevEl: '.center-prev',
+        }
+    });
+
     // Swiper bên phải
     var rightSwiper = new Swiper('.rightSwiper', {
         loop: true,

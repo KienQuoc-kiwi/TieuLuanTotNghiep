@@ -11,6 +11,7 @@
         <th>Giới tính</th>
         <th>Địa chỉ</th>
         <th>Điện thoại</th>
+        <th></th>
     </tr>
     <?php
         $i = 0;

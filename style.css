@@ -7,7 +7,18 @@
 header {
   background-color: #EFF0F1;
   text-align: center;
+}
 
+h2 {
+  margin-top: 15px; /* Giữ nguyên khoảng cách trên */
+  font-size: 36px; /* Tăng kích thước chữ để giống hình */
+  font-weight: 900; /* Tăng độ đậm để giống font đậm đặc trưng */
+  text-transform: uppercase; /* Chữ in hoa */
+  letter-spacing: 4px; /* Thêm khoảng cách giữa các chữ để giống phong cách */
+  color: #000; /* Màu đen giống hình */
+  font-family: "Helvetica Neue", Arial, sans-serif; /* Font giống với phong cách hiện đại của Adidas */
+  text-align: center; /* Căn giữa tiêu đề giống hình */
+  line-height: 1.2; /* Điều chỉnh độ cao dòng để hài hòa */
 }
 
 .header-bottom img {
@@ -15,15 +26,9 @@ header {
   width: 159px;
 }
 
-/* định vị icon kính lúp*/
-.wrapper {
-  position: relative;
-  display: inline-block;
-}
-
+/* Định vị icon kính lúp */
 .input-find {
   padding: 10px 35px 10px 10px;
-  /* Chừa khoảng bên phải cho icon */
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -38,9 +43,7 @@ header {
   pointer-events: none;
 }
 
-/*định vị icon kính lúp*/
-
-/* định vị vị trí header*/
+/* Định vị header */
 header.header-index {
   width: 100%;
   background-color: #EFF0F1;
@@ -94,7 +97,6 @@ header.header-index {
   display: flex;
   align-items: center;
   gap: 10px;
-  /* background-color: #f1f4f6; */
   padding: 5px 10px;
   border-radius: 4px;
   margin-left: auto;
@@ -157,11 +159,12 @@ header.header-index {
   color: #000;
 }
 
-/* định vị vị trí header*/
+/************* banner *************/
+
 .banner-layout {
     display: flex;
     width: 100%;
-    height: 100vh; /* hoặc bạn đặt chiều cao cụ thể như 600px nếu không muốn toàn màn */
+    height: 100vh; /* Hoặc điều chỉnh chiều cao phù hợp */
     overflow: hidden;
 }
 
@@ -175,76 +178,61 @@ header.header-index {
 .banner-center img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* đảm bảo hình ảnh phủ đầy mà không bị méo */
+    object-fit: cover;
     display: block;
 }
 
+/************** Swiper ********************/
 /* Swiper slides full height */
 .swiper-wrapper,
 .swiper-slide {
     height: 100%;
 }
 
-.swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
 /* Swiper container chiếm toàn bộ */
 .swiper {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 /* Slide chiếm toàn bộ chiều cao */
 .swiper-slide {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  /* Thêm */
-  align-items: center;
-  /* Căn giữa theo chiều dọc */
-  justify-content: center;
-  /* Căn giữa theo chiều ngang */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Ảnh căn đều khung, không bị lệt */
-/* Ảnh Swiper slide rõ nét, bao khung và giữ chất lượng */
+/* Ảnh Swiper slide rõ nét */
 .swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-
-  /* Tối ưu độ nét ảnh */
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
-
-
 
 /* Nút điều hướng */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #000;
-  /* Hoặc #fff tùy background */
+    color: #000;
 }
 
 /* Dot pagination đang active */
 .swiper-pagination-bullet-active {
-  background: #000;
+    background: #000;
 }
 
 .swiper-pagination {
-  bottom: 15px !important;
+    bottom: 15px !important;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  top: 50%;
-  transform: translateY(-50%);
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 @media screen and (max-width: 768px) {
@@ -252,10 +240,49 @@ header.header-index {
         flex-direction: column;
         height: auto;
     }
-
     .banner-side,
     .banner-center {
         height: 33vh;
     }
 }
 
+/* container-grid */
+
+/* Định dạng cho container chính */
+.container-grid {
+  background-color: #000; /* Nền đen giống hình */
+  color: #fff; /* Chữ trắng */
+  padding: 60px 30px; /* Tăng padding để giống khoảng cách trong hình */
+  font-family: "Arial", sans-serif; /* Font chữ tương tự */
+  text-align: left; /* Căn trái nội dung */
+  width: 100%; /* Đảm bảo container chiếm toàn bộ chiều rộng */
+  box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước tổng */
+  margin-top: 15px;
+}
+
+/* Định dạng cho phần footer-section */
+.footer-section {
+  max-width: 800px; /* Giới hạn chiều rộng giống hình, nhỏ hơn 1200px để sát với bố cục */
+  margin: 0 auto; /* Căn giữa nội dung */
+}
+
+/* Định dạng tiêu đề h3 */
+.footer-section h3 {
+  font-size: 28px; /* Tăng kích thước chữ tiêu đề để giống hình */
+  font-weight: 700; /* Chữ đậm */
+  text-transform: uppercase; /* Chữ in hoa */
+  margin-bottom: 30px; /* Tăng khoảng cách dưới tiêu đề để giống hình */
+  line-height: 1.3; /* Độ cao dòng */
+  letter-spacing: 1px; /* Thêm khoảng cách giữa các chữ để giống phong cách */
+  color: #fff; /* Đảm bảo màu trắng rõ nét */
+  opacity: 1; /* Đảm bảo không bị mờ */
+}
+
+/* Định dạng các đoạn văn bản */
+.footer-section p {
+  font-size: 14px; /* Giảm kích thước chữ để giống hình */
+  line-height: 1.8; /* Tăng độ cao dòng cho dễ đọc và giống hình */
+  margin-bottom: 20px; /* Tăng khoảng cách giữa các đoạn */
+  opacity: 0.85; /* Độ trong suốt nhẹ cho các đoạn văn */
+  color: #fff; /* Đảm bảo màu trắng */
+}

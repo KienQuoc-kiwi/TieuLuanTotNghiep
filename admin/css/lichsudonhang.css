@@ -1,0 +1,183 @@
+/* Định dạng container lịch sử đơn hàng */
+.lichsudonhang {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.lichsudonhang h2 {
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+  text-align: center;
+  margin: 30px 0;
+  line-height: 1.3;
+}
+
+/* Định dạng bảng giỏ hàng */
+.lichsudonhang table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lichsudonhang th {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.lichsudonhang td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+.lichsudonhang tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.lichsudonhang tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Định dạng liên kết trong bảng */
+.lichsudonhang a {
+  color: #000;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.lichsudonhang a:hover {
+  background-color: #cc0000;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Định dạng nút xóa sản phẩm */
+.lichsudonhang .delete-btn {
+  background-color: white;
+  color: #080000;
+  border: none;
+  padding: 0px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lichsudonhang .delete-btn:hover {
+  background-color: #cc0000;
+  color: #ddd;
+}
+
+/* Định dạng tổng đơn hàng */
+.lichsudonhang .tong-don-hang {
+  max-width: 300px;
+  margin-left: auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: right;
+}
+
+.lichsudonhang .tong-don-hang p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.lichsudonhang .tong-don-hang .thanhtoan-btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lichsudonhang .tong-don-hang .thanhtoan-btn:hover {
+  background-color: #333;
+}
+
+/* Định dạng gợi ý cho bạn */
+.lichsudonhang .suggestion-section {
+  margin-top: 40px;
+}
+
+.lichsudonhang .suggestion-section h2 {
+  margin-bottom: 20px;
+}
+
+.lichsudonhang .suggestion-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.lichsudonhang .suggestion-item {
+  background-color: #f5f5f5;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 150px;
+  text-align: center;
+}
+
+.lichsudonhang .suggestion-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.lichsudonhang .suggestion-item p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #000;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .lichsudonhang table {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .lichsudonhang th, .lichsudonhang td {
+    padding: 10px;
+  }
+
+  .lichsudonhang h2 {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+
+  .lichsudonhang .suggestion-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lichsudonhang .suggestion-item {
+    width: 120px;
+  }
+
+  .lichsudonhang .tong-don-hang {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+}

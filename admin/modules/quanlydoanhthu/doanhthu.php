@@ -120,7 +120,7 @@ const doanhThuChart = new Chart(ctx, {
         labels: ['01', '02', '03', '04', '05', '06', '07'], // Ngày
         datasets: [{
             label: 'Doanh thu theo ngày',
-            data: [3500000, 4200000, 5100000, 3000000, 7000000, 6500000, 8000000], // Thay bằng dữ liệu PHP nếu có
+            data: [3500000, 10000000, 50000000, 100000000, 200000000, 300000000, 400000000], // Thay bằng dữ liệu PHP nếu có
             backgroundColor: 'rgba(78, 115, 223, 0.05)',
             borderColor: 'rgba(78, 115, 223, 1)',
             borderWidth: 2,

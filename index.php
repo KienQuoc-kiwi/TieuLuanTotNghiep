@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="admin/css/footer.css">
     <link rel="stylesheet" href="admin/css/listheader.css">
     <link rel="stylesheet" href="croll.css">
+    <link rel="stylesheet" href="admin/css/lichsudonhang.css">
+    <link rel="stylesheet" href="admin/css/donhangkhach.css">
+    <link rel="stylesheet" href="admin/css/giohang.css">
     <!-- <link rel="stylesheet" href="admin/css/swipper.css"> -->
 
     <!-- Font + Icon -->

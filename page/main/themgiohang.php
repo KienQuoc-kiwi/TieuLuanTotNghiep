@@ -2,162 +2,143 @@
 session_start();
 include("../../config/config.php");
 
-//thêm số lượng
+// Tăng số lượng
 if (isset($_GET['cong'])) {
     $id = $_GET['cong'];
+    $product = [];
     foreach ($_SESSION['cart'] as $cart_item) {
-        if ($cart_item['id'] != $id) {
-            $product[] = array(
+        if ($cart_item['id'] == $id) {
+            // Tăng số lượng nếu nhỏ hơn hoặc bằng 9
+            $tangsoluong = $cart_item['soluong'] < 10 ? $cart_item['soluong'] + 1 : $cart_item['soluong'];
+            $product[] = [
+                'tensanpham' => $cart_item['tensanpham'],
+                'id' => $cart_item['id'],
+                'soluong' => $tangsoluong,
+                'giasp' => $cart_item['giasp'],
+                'hinhanh' => $cart_item['hinhanh'],
+                'masp' => $cart_item['masp']
+            ];
+        } else {
+            // Giữ nguyên các sản phẩm khác
+            $product[] = [
                 'tensanpham' => $cart_item['tensanpham'],
                 'id' => $cart_item['id'],
                 'soluong' => $cart_item['soluong'],
                 'giasp' => $cart_item['giasp'],
                 'hinhanh' => $cart_item['hinhanh'],
                 'masp' => $cart_item['masp']
-            );
-            $_SESSION['cart'] = $product;
-        } else {
-            $tangsoluong = $cart_item['soluong'] + 1;
-            if ($cart_item['soluong'] <= 9) {
-                if ($cart_item['soluong'] <= 10) {
-                    $product[] = array(
-                        'tensanpham' => $cart_item['tensanpham'],
-                        'id' => $cart_item['id'],
-                        'soluong' => $tangsoluong,
-                        'giasp' => $cart_item['giasp'],
-                        'hinhanh' => $cart_item['hinhanh'],
-                        'masp' => $cart_item['masp']
-                    );
-                } else {
-                    $product[] = array(
-                        'tensanpham' => $cart_item['tensanpham'],
-                        'id' => $cart_item['id'],
-                        'soluong' => $cart_item['soluong'],
-                        'giasp' => $cart_item['giasp'],
-                        'hinhanh' => $cart_item['hinhanh'],
-                        'masp' => $cart_item['masp']
-                    );
-                }
-                $_SESSION['cart'] = $product;
-            }
+            ];
         }
-        header('Location:../../index.php?quanly=giohang');
-        exit();
     }
+    $_SESSION['cart'] = $product; // Gán lại giỏ hàng sau khi xử lý toàn bộ
+    header('Location:../../index.php?quanly=giohang');
+    exit();
 }
-//giảm số lượng
+
+// Giảm số lượng
 if (isset($_GET['tru'])) {
     $id = $_GET['tru'];
+    $product = [];
     foreach ($_SESSION['cart'] as $cart_item) {
-        if ($cart_item['id'] != $id) {
-            $product[] = array(
+        if ($cart_item['id'] == $id) {
+            // Giảm số lượng nếu lớn hơn 1
+            $giamsoluong = $cart_item['soluong'] > 1 ? $cart_item['soluong'] - 1 : $cart_item['soluong'];
+            $product[] = [
+                'tensanpham' => $cart_item['tensanpham'],
+                'id' => $cart_item['id'],
+                'soluong' => $giamsoluong,
+                'giasp' => $cart_item['giasp'],
+                'hinhanh' => $cart_item['hinhanh'],
+                'masp' => $cart_item['masp']
+            ];
+        } else {
+            // Giữ nguyên các sản phẩm khác
+            $product[] = [
                 'tensanpham' => $cart_item['tensanpham'],
                 'id' => $cart_item['id'],
                 'soluong' => $cart_item['soluong'],
                 'giasp' => $cart_item['giasp'],
                 'hinhanh' => $cart_item['hinhanh'],
                 'masp' => $cart_item['masp']
-            );
-            $_SESSION['cart'] = $product;
-        } else {
-            $giamsoluong = $cart_item['soluong'] - 1;
-            if ($cart_item['soluong'] > 1) {
-                if ($cart_item['soluong'] <= 10) {
-                    $product[] = array(
-                        'tensanpham' => $cart_item['tensanpham'],
-                        'id' => $cart_item['id'],
-                        'soluong' => $giamsoluong,
-                        'giasp' => $cart_item['giasp'],
-                        'hinhanh' => $cart_item['hinhanh'],
-                        'masp' => $cart_item['masp']
-                    );
-                } else {
-                    $product[] = array(
-                        'tensanpham' => $cart_item['tensanpham'],
-                        'id' => $cart_item['id'],
-                        'soluong' => $cart_item['soluong'],
-                        'giasp' => $cart_item['giasp'],
-                        'hinhanh' => $cart_item['hinhanh'],
-                        'masp' => $cart_item['masp']
-                    );
-                }
-                $_SESSION['cart'] = $product;
-            }
+            ];
         }
-        header('Location:../../index.php?quanly=giohang');
-        exit();
     }
+    $_SESSION['cart'] = $product; // Gán lại giỏ hàng sau khi xử lý toàn bộ
+    header('Location:../../index.php?quanly=giohang');
+    exit();
 }
-//xóa sản phẩm
+
+// Xóa sản phẩm
 if (isset($_SESSION['cart']) && isset($_GET['xoa'])) {
     $id = $_GET['xoa'];
+    $product = [];
     foreach ($_SESSION['cart'] as $cart_item) {
         if ($cart_item['id'] != $id) {
-            $product[] = array(
+            $product[] = [
                 'tensanpham' => $cart_item['tensanpham'],
                 'id' => $cart_item['id'],
                 'soluong' => $cart_item['soluong'],
                 'giasp' => $cart_item['giasp'],
                 'hinhanh' => $cart_item['hinhanh'],
                 'masp' => $cart_item['masp']
-            );
+            ];
         }
-        $_SESSION['cart'] = $product;
-        header('Location:../../index.php?quanly=giohang');
-        exit();
     }
+    $_SESSION['cart'] = $product;
+    header('Location:../../index.php?quanly=giohang');
+    exit();
 }
-//xóa tất cả
+
+// Xóa tất cả
 if (isset($_GET['xoatatca']) && $_GET['xoatatca'] == 1) {
     unset($_SESSION['cart']);
     header('Location:../../index.php?quanly=giohang');
     exit();
 }
+
+// Thêm sản phẩm vào giỏ hàng
 if (isset($_POST['themgiohang'])) {
-    //session_destroy();
     $id = $_GET['id_sanpham'];
-    $Soluong = 1;
+    $soluong = 1;
     $sql = "SELECT * FROM sanpham WHERE id_sanpham='" . $id . "' LIMIT 1";
     $query = mysqli_query($mysqli, $sql);
     $row = mysqli_fetch_array($query);
     if ($row) {
-        $new_product = array(array(
+        $new_product = [[
             'tensanpham' => $row['tensanpham'],
             'id' => $id,
-            'soluong' => $Soluong,
+            'soluong' => $soluong,
             'giasp' => $row['giasp'],
             'hinhanh' => $row['hinhanh'],
             'masp' => $row['masp']
-        ));
-        //kiểm tra session giỏ hàng tồn tại
+        ]];
+        // Kiểm tra session giỏ hàng tồn tại
         if (isset($_SESSION['cart'])) {
             $found = false;
+            $product = [];
             foreach ($_SESSION['cart'] as $cart_item) {
-                //nếu dữ liệu trùng
                 if ($cart_item['id'] == $id) {
-                    $product[] = array(
+                    $product[] = [
                         'tensanpham' => $cart_item['tensanpham'],
                         'id' => $cart_item['id'],
-                        'soluong' => $Soluong + 1,
+                        'soluong' => $cart_item['soluong'] + 1,
                         'giasp' => $cart_item['giasp'],
                         'hinhanh' => $cart_item['hinhanh'],
                         'masp' => $cart_item['masp']
-                    );
+                    ];
                     $found = true;
                 } else {
-                    //nếu dữ liệu không trùng
-                    $product[] = array(
+                    $product[] = [
                         'tensanpham' => $cart_item['tensanpham'],
                         'id' => $cart_item['id'],
                         'soluong' => $cart_item['soluong'],
                         'giasp' => $cart_item['giasp'],
                         'hinhanh' => $cart_item['hinhanh'],
                         'masp' => $cart_item['masp']
-                    );
+                    ];
                 }
             }
-            //liên kết dữ liệu new_product với product
-            if ($found == false) {
+            if (!$found) {
                 $_SESSION['cart'] = array_merge($product, $new_product);
             } else {
                 $_SESSION['cart'] = $product;
@@ -169,3 +150,4 @@ if (isset($_POST['themgiohang'])) {
     header('Location:../../index.php?quanly=giohang');
     exit();
 }
+?>

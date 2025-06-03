@@ -80,25 +80,35 @@ header.header-index {
   background-color: #EFF0F1;
 }
 
+/* Đảm bảo nằm trong list-header */
 .list-header {
   display: flex;
   gap: 36px;
   list-style: none;
   margin-left: 180px;
+  align-items: center;
 }
 
 .navigation {
-  font-weight: bold;
   font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  text-decoration: none;
 }
 
+/* tìm kiếm */
 .auxiliary-menu {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 5px 10px;
-  border-radius: 4px;
+  gap: 12px;
+  padding: 6px 10px;
+  border-radius: 5px;
   margin-left: auto;
 }
 
@@ -106,24 +116,60 @@ header.header-index {
   position: relative;
   display: flex;
   align-items: center;
-  background-color: #e9ecef;
-  border-radius: 5px;
-  padding: 5px 10px;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 4px 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.wrapper:hover {
+  border-color: #9ca3af;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .input-find {
   border: none;
   background: transparent;
   outline: none;
-  padding: 5px;
-  font-size: 14px;
+  padding: 4px 6px;
+  font-size: 13px;
   width: 120px;
+  color: #444;
+  transition: width 0.2s ease;
 }
 
-.wrapper i {
-  margin-left: 5px;
-  color: #000;
-  font-size: 16px;
+.input-find:focus {
+  width: 140px;
+}
+
+.search-button {
+  display: flex;
+  align-items: center;
+}
+
+.search-button button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #6b7280;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.search-button button:hover {
+  color: #1d4ed8;
+}
+
+.search-button button i {
+  font-size: 14px;
+}
+
+/* Loại bỏ ::before để tránh xung đột với icon trong button */
+.wrapper::before {
+  content: none;
 }
 
 .user-icon {
@@ -286,3 +332,19 @@ header.header-index {
   opacity: 0.85; /* Độ trong suốt nhẹ cho các đoạn văn */
   color: #fff; /* Đảm bảo màu trắng */
 }
+
+/*Áp dụng cụ thể cho "Lịch sử đơn hàng"*/
+/*#lich-su-don-hang {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0; /* Loại bỏ padding dư thừa */
+  /* border: none;  Loại bỏ viền  */
+  /* background: none; Loại bỏ nền  */

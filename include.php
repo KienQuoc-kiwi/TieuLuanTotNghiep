@@ -51,6 +51,12 @@
                 elseif($tam=='thanhtoan'){ 
                     include("page/main/thanhtoan.php");
                 }
+                elseif($tam=='lichsudonhang'){ 
+                    include("page/main/lichsudonhang.php");
+                }
+                elseif($tam=='xemdonhang'){ 
+                    include("page/main/xemdonhang.php");
+                }
                 elseif($tam=='quanlybinhluan'){ 
                     include("main/comment/lietkecontent.php");
                 }

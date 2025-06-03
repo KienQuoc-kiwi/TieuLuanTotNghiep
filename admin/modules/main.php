@@ -43,7 +43,9 @@
     //quản lý đơn hàng
     elseif ($tam == 'quanlydonhang' && $query == 'lietke') {
         include("modules/quanlydonhang/lietke.php");
-    } elseif ($tam == 'donhang' && $query == 'xemdonhang') {
+    }elseif ($tam == 'quanlydonhang' && $query == 'sua') {
+        include("modules/quanlydonhang/sua.php");
+    }elseif ($tam == 'quanlydonhang' && $query == 'xemdonhang') {
         include("modules/quanlydonhang/xemdonhang.php");
         //quản lý nhân viên    
     } elseif ($tam == 'quanlynhanvien' && $query == 'lietke') {

@@ -3,55 +3,65 @@
 session_start();
 include("../../config/config.php");
 
-// Kiểm tra đăng nhập
-if (!isset($_SESSION['id_khach']) || !isset($_SESSION['cart'])) {
-    echo "Lỗi: chưa đăng nhập hoặc giỏ hàng trống.";
+// Kiểm tra đăng nhập và giỏ hàng
+if (!isset($_SESSION['id_khach']) || !isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
+    echo "<p style='color:red;'>Lỗi: Bạn chưa đăng nhập hoặc giỏ hàng trống.</p>";
     exit;
 }
 
-$idkhachhang = $_SESSION['id_khach'];
-$code_order = rand(0, 9999);
+$id_khach = $_SESSION['id_khach'];
+$ma_giohang = 'DH' . time(); // Mã đơn hàng duy nhất
+$ngaytao = date('Y-m-d H:i:s');
+$trangthai = 'Chờ xác nhận';
 
-// Thêm đơn hàng
-$insert_cart = "INSERT INTO donhang (id_khach, ma_giohang, trangthai, ngaytao)
-                VALUES ('$idkhachhang', '$code_order', 1, NOW())";
+// Kiểm tra tồn kho trước khi tạo đơn
+$loi_tonkho = false;
+foreach ($_SESSION['cart'] as $item) {
+    $id_sanpham = $item['id'];
+    $soluong = $item['soluong'];
 
-$cart_query = mysqli_query($mysqli, $insert_cart);
+    $sql_check = "SELECT soluong FROM sanpham WHERE id_sanpham = $id_sanpham";
+    $result_check = mysqli_query($mysqli, $sql_check);
+    $row_check = mysqli_fetch_assoc($result_check);
 
-if ($cart_query) {
-    $loi_tonkho = false;
-
-    foreach ($_SESSION['cart'] as $value) {
-        $id_sanpham = $value['id'];
-        $soluong = $value['soluong'];
-
-        // Kiểm tra tồn kho
-        $check = mysqli_query($mysqli, "SELECT soluong FROM sanpham WHERE id_sanpham = $id_sanpham");
-        $row = mysqli_fetch_assoc($check);
-
-        if ($row['soluong'] >= $soluong) {
-            // Cập nhật tồn kho
-            $update_sql = "UPDATE sanpham SET soluong = soluong - $soluong WHERE id_sanpham = $id_sanpham";
-            mysqli_query($mysqli, $update_sql);
-
-            // Thêm chi tiết đơn hàng
-            $insert_order_details = "INSERT INTO chitietdonhang (id_sanpham, ma_giohang, soluong) VALUES ('$id_sanpham', '$code_order', '$soluong')";
-            mysqli_query($mysqli, $insert_order_details);
-        } else {
-            echo "Sản phẩm ID $id_sanpham không đủ số lượng tồn kho!<br>";
-            $loi_tonkho = true;
-        }
+    if (!$row_check || $row_check['soluong'] < $soluong) {
+        echo "<p style='color:red;'>❌ Sản phẩm ID $id_sanpham không đủ hàng trong kho.</p>";
+        $loi_tonkho = true;
     }
-
-    // Nếu không có lỗi, xóa giỏ hàng
-    if (!$loi_tonkho) {
-        unset($_SESSION['cart']);
-        header("Location:../../index.php?quanly=camon");
-        exit;
-    } else {
-        echo "<p><a href='../../index.php'>Quay lại giỏ hàng</a></p>";
-    }
-} else {
-    echo "Lỗi khi đặt hàng.";
 }
+
+if ($loi_tonkho) {
+    echo "<p><a href='../../index.php'>⬅️ Quay lại giỏ hàng</a></p>";
+    exit;
+}
+
+// 1. Tạo đơn hàng
+$sql_donhang = "INSERT INTO donhang(ma_giohang, id_khach, ngaytao, trangthai) 
+                VALUES ('$ma_giohang', '$id_khach', '$ngaytao', '$trangthai')";
+$query_donhang = mysqli_query($mysqli, $sql_donhang);
+
+if (!$query_donhang) {
+    echo "<p style='color:red;'>Lỗi khi tạo đơn hàng: " . mysqli_error($mysqli) . "</p>";
+    exit;
+}
+
+// 2. Duyệt giỏ hàng để trừ kho và lưu chi tiết
+foreach ($_SESSION['cart'] as $item) {
+    $id_sanpham = $item['id'];
+    $soluong = $item['soluong'];
+
+    // Trừ tồn kho
+    $update_kho = "UPDATE sanpham SET soluong = soluong - $soluong WHERE id_sanpham = $id_sanpham";
+    mysqli_query($mysqli, $update_kho);
+
+    // Lưu chi tiết đơn hàng
+    $sql_chitiet = "INSERT INTO chitietdonhang(ma_giohang, id_sanpham, soluong)
+                    VALUES ('$ma_giohang', '$id_sanpham', '$soluong')";
+    mysqli_query($mysqli, $sql_chitiet);
+}
+
+// 3. Xóa giỏ hàng và chuyển trang
+unset($_SESSION['cart']);
+echo "<p style='color:green;'>🎉 Đặt hàng thành công! Mã đơn hàng của bạn là: <strong>$ma_giohang</strong></p>";
+echo "<meta http-equiv='refresh' content='2;url=../../index.php?quanly=camon'>";
 ?>

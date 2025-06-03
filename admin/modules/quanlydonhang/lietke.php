@@ -1,11 +1,11 @@
 <?php
-$sql_lietke_dh = "SELECT donhang.id_khach as idkhach, donhang.ma_giohang, khachhang.ten_khach, khachhang.username, khachhang.diachi, khachhang.dienthoai FROM donhang, khachhang WHERE donhang.id_khach=khachhang.id_khach
+$sql_lietke_dh = "SELECT donhang.id_khach as idkhach, donhang.ma_giohang, khachhang.ten_khach, khachhang.username, khachhang.diachi, khachhang.dienthoai, ngaytao FROM donhang, khachhang WHERE donhang.id_khach=khachhang.id_khach
     ORDER BY donhang.id_giohang DESC";
 $query_lietke_dh = mysqli_query($mysqli, $sql_lietke_dh);
 
 ?>
 <div class="lietkedonhang">
-    <table >
+    <table>
         <tr>
             <th>Id</th>
             <th>Mã đơn hàng</th>
@@ -13,6 +13,7 @@ $query_lietke_dh = mysqli_query($mysqli, $sql_lietke_dh);
             <th>Email</th>
             <th>Địa chỉ</th>
             <th>Điện thoại</th>
+            <th>Ngày tạo</th>
             <th>Quản lý</th>
         </tr>
         <?php
@@ -28,9 +29,14 @@ $query_lietke_dh = mysqli_query($mysqli, $sql_lietke_dh);
                 <td><?php echo $row['username'] ?></td>
                 <td><?php echo $row['diachi'] ?></td>
                 <td><?php echo $row['dienthoai'] ?></td>
+                <td><?php echo $row['ngaytao'] ?></td>
                 <td>
-                    <a href="indexad.php?action=donhang&query=xemdonhang&code=<?php echo $row['ma_giohang'] ?>">Xem đơn hàng</a>
+                    <a href="indexad.php?action=quanlydonhang&query=xemdonhang&code=<?php echo $row['ma_giohang'] ?>">Xem</a> |
+                    <a href="indexad.php?action=quanlydonhang&query=sua&code=<?php echo $row['ma_giohang'] ?>">Sửa</a> |
+                    <a onclick="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này?')"
+                        href="modules/quanlydonhang/xuly.php?xoa=1&code=<?php echo $row['ma_giohang'] ?>">Xóa</a>
                 </td>
+
             </tr>
         <?php
         }

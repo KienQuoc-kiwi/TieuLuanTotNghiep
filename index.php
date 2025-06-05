@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="admin/css/lichsudonhang.css">
     <link rel="stylesheet" href="admin/css/donhangkhach.css">
     <link rel="stylesheet" href="admin/css/giohang.css">
+    <link rel="stylesheet" href="admin/css/chitietsanpham.css">
     <!-- <link rel="stylesheet" href="admin/css/swipper.css"> -->
 
     <!-- Font + Icon -->

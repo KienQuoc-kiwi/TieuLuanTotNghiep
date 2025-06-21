@@ -1,76 +1,126 @@
-<div class="themdanhmuc">
-    <!-- <p>Thêm sản phẩm mới</p> -->
-    <form method="post" enctype="multipart/form-data" action="modules/quanlybienthe/xuly.php">
-        <table>
+<?php
+include('../config/config.php');
+?>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Sản Phẩm - Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+ <div class="quanly-sp">
+    <h2 class="tieude-them-sp">Thêm Sản Phẩm</h2>
+    <form id="form-them-sp" enctype="multipart/form-data" action="modules/quanlysp/xuly.php" method="POST" class="form-them-sp">
+        <table class="bang-them-sp">
             <tr>
-                <td><strong>Tên sản phẩm</strong></td>
-                <td><input type="text" name="tensanpham" required /></td>
+                <td class="ten-truong"><strong>Tên Sản Phẩm</strong></td>
+                <td class="gia-tri-truong"><input type="text" name="tensanpham" required /></td>
             </tr>
             <tr>
-                <td><strong>Mã sản phẩm</strong></td>
-                <td><input type="text" name="masp" required /></td>
+                <td class="ten-truong"><strong>Mã Sản Phẩm</strong></td>
+                <td class="gia-tri-truong"><input type="text" name="masp" required /></td>
             </tr>
             <tr>
-                <td><strong>Giá sản phẩm</strong></td>
-                <td><input type="text" name="giasp" required /></td>
+                <td class="ten-truong"><strong>Giá Sản Phẩm</strong></td>
+                <td class="gia-tri-truong"><input type="number" name="giasp" min="0" step="1000" required /></td>
             </tr>
             <tr>
-                <td><strong>Số lượng</strong></td>
-                <td><input type="text" name="soluong" required /></td>
+                <td class="ten-truong"><strong>Số Lượng</strong></td>
+                <td class="gia-tri-truong"><input type="number" name="soluong" min="0" required /></td>
             </tr>
             <tr>
-                <td><strong>Ảnh sản phẩm chính</strong></td>
-                <td><input type="file" name="hinhanh" required /></td>
+                <td class="ten-truong"><strong>Ảnh Sản Phẩm</strong></td>
+                <td class="gia-tri-truong"><input type="file" name="hinhanh" accept="image/*" required /></td>
             </tr>
             <tr>
-                <td><strong>Tóm tắt</strong></td>
-                <td><textarea name="tomtat" rows="4"></textarea></td>
+                <td class="ten-truong"><strong>Tóm Tắt</strong></td>
+                <td class="gia-tri-truong"><textarea name="tomtat" rows="4" required></textarea></td>
             </tr>
             <tr>
-                <td><strong>Danh mục</strong></td>
-                <td>
-                    <select name="danhmuc">
+                <td class="ten-truong"><strong>Nội Dung</strong></td>
+                <td class="gia-tri-truong"><textarea name="noidung" rows="5" required></textarea></td>
+            </tr>
+            <tr>
+                <td class="ten-truong"><strong>Danh Mục</strong></td>
+                <td class="gia-tri-truong">
+                    <select name="danhmuc" id="danhmuc-them" onchange="loadSubcategories()" required>
+                        <option value="">Chọn Danh Mục</option>
                         <?php
                         $sql_danhmuc = "SELECT * FROM danhmuc ORDER BY id_danhmuc DESC";
                         $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
                         while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
+                            echo '<option value="' . htmlspecialchars($row_danhmuc['id_danhmuc']) . '">' . htmlspecialchars($row_danhmuc['tendanhmuc']) . '</option>';
+                        }
                         ?>
-                            <option value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>
-                        <?php } ?>
                     </select>
                 </td>
             </tr>
             <tr>
-                <td><strong>Trạng thái</strong></td>
-                <td>
-                    <select name="tinhtrang">
-                        <option value="1">Kích hoạt</option>
+                <td class="ten-truong"><strong>Danh Mục Con</strong></td>
+                <td class="gia-tri-truong">
+                    <select name="danhmuccon" id="danhmuccon-them">
+                        <option value="">Chọn Danh Mục Con</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="ten-truong"><strong>Trạng Thái</strong></td>
+                <td class="gia-tri-truong">
+                    <select name="tinhtrang" required>
+                        <option value="1">Kích Hoạt</option>
                         <option value="0">Ẩn</option>
                     </select>
                 </td>
             </tr>
         </table>
-        <br>
-        <!-- <h4></h4> -->
-        <p>Thêm biến thể sản phẩm (Size + Màu + Số lượng + Ảnh)</p>
-        <table border="1" width="100%" style="border-collapse: collapse;">
-            <tr>
-                <th>Size</th>
-                <th>Màu sắc</th>
-                <th>Số lượng</th>
-                <th>SKU</th>
-                <th>Ảnh riêng</th>
-            </tr>
-            <?php for ($i = 0; $i < 5; $i++) { ?>
-                <tr>
-                    <td><input type="text" name="variants[<?php echo $i ?>][kichco]" placeholder="M, L, 42..." /></td>
-                    <td><input type="text" name="variants[<?php echo $i ?>][mausac]" placeholder="Red, Black..." /></td>
-                    <td><input type="number" name="variants[<?php echo $i ?>][soluongtonkho]" min="0" /></td>
-                    <td><input type="text" name="variants[<?php echo $i ?>][madinhdanh]" placeholder="Tự động nếu trống" /></td>
-                    <td><input type="file" name="variant_images[<?php echo $i ?>]" /></td>
-                </tr>
-            <?php } ?>
-        </table>
-        <input type="submit" name="themsanpham" value="Thêm sản phẩm mới">
+        <br><br>
+        <input type="submit" name="themsp" value="Thêm Sản Phẩm" class="nut-xac-nhan">
     </form>
 </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            function loadSubcategories() {
+                const id_danhmuc = $('#danhmuc').val();
+                if (!id_danhmuc) {
+                    $('#danhmuccon').html('<option value="">Chọn Danh Mục Con</option>');
+                    return;
+                }
+                $.ajax({
+                    url: 'modules/quanlysp/nhandanhmuc.php',
+                    type: 'POST',
+                    data: { id_danhmuc: id_danhmuc },
+                    dataType: 'json',
+                    success: function(data) {
+                        const subcategorySelect = $('#danhmuccon');
+                        subcategorySelect.html('<option value="">Chọn Danh Mục Con</option>');
+                        if (data && Array.isArray(data)) {
+                            data.forEach(sub => {
+                                subcategorySelect.append(`<option value="${sub.id_danhmuccon}">${sub.ten_danhmuccon}</option>`);
+                            });
+                        } else {
+                            console.error('Dữ liệu không hợp lệ:', data);
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error('AJAX error:', textStatus, errorThrown);
+                        alert('Lỗi khi tải danh mục con. Vui lòng kiểm tra kết nối hoặc liên hệ quản trị viên.');
+                    }
+                });
+            }
+        </script>
+
+        <style>
+            .form-label { font-weight: bold; }
+            .form-control { width: 100%; padding: 8px; margin-bottom: 10px; }
+            table { width: 100%; border-collapse: collapse; }
+            table td { padding: 10px; }
+            input[type="text"], input[type="number"], textarea, select { width: 100%; padding: 5px; }
+        </style>
+    </div>
+</body>
+</html>

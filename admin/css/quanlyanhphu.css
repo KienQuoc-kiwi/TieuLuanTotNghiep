@@ -1,0 +1,163 @@
+/* Giao diện tổng thể */
+.quanly-anhphu, .them-anhphu, .sua-anhphu {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px auto;
+  max-width: 1000px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", sans-serif;
+  color: #212529;
+}
+
+.quanly-anhphu h2,
+.them-anhphu h2,
+.sua-anhphu h2 {
+  color: #343A40;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Bảng danh sách ảnh phụ */
+.table-anhphu {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-anhphu th,
+.table-anhphu td {
+  border: 1px solid #dee2e6;
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-anhphu th {
+  background-color: #343A40;
+  color: white;
+  font-weight: 600;
+}
+
+.table-anhphu td img {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Nút hành động */
+.btn-sua,
+.btn-xoa,
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-sua {
+  background-color: #343A40;
+}
+
+.btn-xoa {
+  background-color: #dc3545;
+}
+
+.btn-sua:hover {
+  background-color: #23272b;
+}
+
+.btn-xoa:hover {
+  background-color: #c82333;
+}
+
+/* Thông báo thành công/lỗi */
+.alert {
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Form thêm và sửa */
+form .mb-3 {
+  margin-bottom: 16px;
+}
+
+form label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+form input[type="file"],
+form input[type="number"],
+form select,
+form .form-control {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+form input[type="file"]:focus,
+form input[type="number"]:focus,
+form select:focus {
+  border-color: #343A40;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 58, 64, 0.2);
+}
+
+form input[type="submit"],
+form button {
+  background-color: #343A40;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover,
+form button:hover {
+  background-color: #23272b;
+}
+
+@media (max-width: 768px) {
+  .table-anhphu th,
+  .table-anhphu td {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .quanly-anhphu, .them-anhphu, .sua-anhphu {
+    padding: 16px;
+  }
+}

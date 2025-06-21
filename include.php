@@ -13,7 +13,7 @@
                 }else
                     $tam = '';
                 if($tam=='danhmucsanpham'){
-                    include("main/danhmuc.php");
+                    include("page/main/danhmucsanpham.php");
                 }
                 elseif($tam=='giohang'){
                     include("page/main/giohang.php");
@@ -34,7 +34,7 @@
                     include("main/dangkykhach.php");
                 }
                 elseif($tam=='dangnhap'){ 
-                    include("main/dangnhap.php");
+                    include("page/main/dangnhapkhach.php");
                 }
                 elseif($tam=='dangnhapad'){ 
                     include("../admin/login.php");

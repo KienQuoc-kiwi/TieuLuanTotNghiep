@@ -1,0 +1,129 @@
+/* Reset và cấu trúc chính */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header tổng thể */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #343A40;
+    color: #fff;
+    padding: 12px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    height: 60px;
+}
+
+/* Logo tránh bị che bởi nút menu */
+.logo {
+    display: flex;
+    align-items: center;
+    padding-left: 50px; /* Đẩy logo qua phải để tránh nút menu bên trái */
+}
+
+/* Admin info (bên phải header) */
+.admin-info {
+    font-size: 14px;
+}
+
+
+.logo img {
+    height: 40px;
+}
+
+.menu-toggle {
+    display: inline-block;
+    font-size: 26px;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* Nội dung chính */
+.main {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+/* Sidebar menu */
+.menu#sidebarMenu {
+    width: 260px;
+    background-color: #343A40;
+    color: #fff;
+    border-radius: 8px;
+    padding: 20px 0;
+    height: fit-content;
+}
+
+.menu#sidebarMenu .admincp_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu#sidebarMenu .admincp_list li a {
+    display: block;
+    padding: 12px 25px;
+    color: #ddd;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+    font-size: 15px;
+}
+
+.menu#sidebarMenu .admincp_list li a:hover {
+    background-color: #495057;
+    color: #fff;
+}
+
+/* Main content area */
+.content {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* Footer */
+.footer {
+    background-color: #343A40;
+    color: #fff;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .menu#sidebarMenu {
+        width: 100%;
+    }
+
+    .menu-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+}

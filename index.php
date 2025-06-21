@@ -7,7 +7,7 @@
 
     <!-- CSS chính -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="admin/css/pro.css">
+    <!-- <link rel="stylesheet" href="admin/css/pro.css"> -->
     <link rel="stylesheet" href="admin/css/footer.css">
     <link rel="stylesheet" href="admin/css/listheader.css">
     <link rel="stylesheet" href="croll.css">
@@ -15,7 +15,10 @@
     <link rel="stylesheet" href="admin/css/donhangkhach.css">
     <link rel="stylesheet" href="admin/css/giohang.css">
     <link rel="stylesheet" href="admin/css/chitietsanpham.css">
-    <!-- <link rel="stylesheet" href="admin/css/swipper.css"> -->
+    <link rel="stylesheet" href="admin/css/timkiem.css">
+    <link rel="stylesheet" href="admin/css/danhmucsanpham.css">
+    <!-- <link rel="stylesheet" href="admin/css/binhluan.css"> -->
+     <link rel="stylesheet" href="admin/css/sanpham.css">
 
     <!-- Font + Icon -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

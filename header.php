@@ -1,44 +1,28 @@
+<?php
+require 'config/config.php'; // File kết nối database
+?>
 <header data-auto-id="header" class="header-index">
-
     <div class="header-bottom">
         <a href="index.php"><img src="img/logo.png" alt=""></a>
-
         <ul class="list-header">
-            <li class="navigation nav-dropdown">GIÀY
-                <ul class="submenu">
-                    <li><a href="#">Hàng mới về</a></li>
-                    <li><a href="#">Trending giày</a></li>
-                </ul>
-            </li>
-
-            <li class="navigation nav-dropdown">
-                NAM
-                <ul class="submenu">
-                    <li><a href="#">Hàng Mới Về</a></li>
-                    <li><a href="#">Originals</a></li>
-                    <li><a href="#">Giày Thể Thao</a></li>
-                    <li><a href="#">Giày Chạy Bộ & Đi Bộ</a></li>
-                    <li><a href="#">Giày Bóng Đá</a></li>
-                    <li><a href="#">Giày Tây</a></li>
-                </ul>
-            </li>
-
-            <li class="navigation nav-dropdown">
-                NỮ
-                <ul class="submenu">
-                    <li><a href="#">Hàng Mới Về</a></li>
-                    <li><a href="#">Originals</a></li>
-                    <li><a href="#">Giày Thể Thao</a></li>
-                    <li><a href="#">Giày Chạy Bộ & Đi Bộ</a></li>
-                    <li><a href="#">Quần Vợt</a></li>
-                    <li><a href="#">Giày Tập Yoga</a></li>
-                </ul>
-            </li>
-
-            <li class="navigation">TRẺ EM</li>
-            <li class="navigation">THỂ THAO</li>
-            <li class="navigation">CÁC NHÃN HIỆU</li>
-            <li class="navigation">OUTLET</li>
+            <?php
+            $sql = "SELECT * FROM danhmuc ORDER BY thutu ASC";
+            $result = mysqli_query($mysqli, $sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<li class="navigation nav-dropdown">' . htmlspecialchars($row['tendanhmuc']);
+                $sql_sub = "SELECT * FROM danhmuccon WHERE id_danhmuc = " . $row['id_danhmuc'];
+                $result_sub = mysqli_query($mysqli, $sql_sub);
+                if (mysqli_num_rows($result_sub) > 0) {
+                    echo '<ul class="submenu">';
+                    while ($sub_row = mysqli_fetch_assoc($result_sub)) {
+                        echo '<li><a href="index.php?quanly=danhmucsanpham&id_danhmuc=' . $row['id_danhmuc'] . '&id_danhmuccon=' . $sub_row['id_danhmuccon'] . '">' . htmlspecialchars($sub_row['ten_danhmuccon']) . '</a></li>';
+                    }
+                    echo '</ul>';
+                }
+                echo '</li>';
+            }
+            ?>
+            <!-- <li class="navigation"><a href="#" class="navigation">KHUYẾN MÃI</a></li> -->
             <li class="navigation">
                 <a href="index.php?quanly=lichsudonhang" class="navigation">Lịch sử đơn hàng</a>
             </li>

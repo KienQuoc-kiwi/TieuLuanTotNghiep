@@ -1,7 +1,8 @@
-<div class="themdanhmucsp">
-    <p>Thêm danh mục sản phẩm</p>
+<div class="quanly-danhmuc">
+    
     <form method="POST" action="modules/quanlydanhmucsp/xuly.php">
-        <table>
+        <p>Thêm danh mục sản phẩm</p>
+        <table class="form-danhmuc">
             <tr>
                 <th colspan="2">Điền danh mục sản phẩm</th>
             </tr>
@@ -15,7 +16,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="submit" name="themdanhmuc" value="Thêm danh mục sản phẩm">
+                    <input type="submit" name="themdanhmuc" class="nut-danhmuc-submit" value="Thêm danh mục sản phẩm">
                 </td>
             </tr>
         </table>

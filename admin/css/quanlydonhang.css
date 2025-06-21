@@ -1,0 +1,128 @@
+/* Vùng bọc toàn bộ nội dung */
+.qldh-lietke-wrapper,
+.qldh-xem-wrapper,
+.qldh-edit-form {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* Bảng */
+.qldh-lietke-table,
+.qldh-bang-sanpham {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.qldh-lietke-table th,
+.qldh-lietke-table td,
+.qldh-bang-sanpham th,
+.qldh-bang-sanpham td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+
+/* Nút hành động */
+.qldh-btn {
+  display: inline-block;
+  padding: 6px 14px;
+  margin: 2px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s ease-in-out;
+}
+.qldh-xem {
+  background-color: #343A40;
+  color: white;
+}
+.qldh-xem:hover {
+  background-color: #2980b9;
+}
+.qldh-sua {
+  background-color: #343A40;
+  color: white;
+}
+.qldh-sua:hover {
+  background-color: #d4ac0d;
+}
+.qldh-xoa {
+  background-color: #343A40;
+  color: white;
+}
+.qldh-xoa:hover {
+  background-color: #c0392b;
+}
+
+/* Thông tin đơn hàng */
+.qldh-thongtin h2 {
+  color: #2c3e50;
+}
+.qldh-trangthai-daduyet {
+  color: green;
+  font-weight: bold;
+}
+.qldh-trangthai-choduyet {
+  color: orange;
+  font-weight: bold;
+}
+.qldh-tongtien {
+  font-size: 18px;
+  font-weight: bold;
+  color: #c0392b;
+}
+.qldh-nut-hanhdong {
+  margin-top: 20px;
+}
+.qldh-nut-hanhdong button,
+.qldh-nut-hanhdong input[type="submit"] {
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.qldh-nut-hanhdong button:hover,
+.qldh-nut-hanhdong input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+/* Hình ảnh sản phẩm */
+.qldh-bang-sanpham img {
+  width: 80px;
+  border-radius: 6px;
+}
+
+/* Form chỉnh sửa */
+.qldh-edit-form label {
+  display: block;
+  margin-top: 15px;
+}
+.qldh-edit-form input[type="text"],
+.qldh-edit-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  font-size: 14px;
+}
+.qldh-edit-form input[type="submit"] {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+.qldh-edit-form input[type="submit"]:hover {
+  background: #219150;
+}

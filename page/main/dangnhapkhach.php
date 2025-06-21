@@ -4,18 +4,55 @@ include('../../config/config.php');
 if (isset($_POST['dangnhap'])) {
     $username = $_POST['username'];
     $matkhau = md5($_POST['password']);
-    $sql = "SELECT * FROM khachhang WHERE username='" . $username . "' AND password='" . $matkhau . "' LIMIT 1";
-    $row = mysqli_query($mysqli, $sql);
-    $count = mysqli_num_rows($row);
-    if ($count > 0) {
-        $row_data = mysqli_fetch_array($row);
-        $_SESSION['dangkyk'] = $row_data['ten_khach'];
-        $_SESSION['id_khach'] = $row_data['id_khach'];
-        header("Location:../../index.php");
+    $id_vaitro = $_POST['id_vaitro'];
+
+    // Xác định bảng và cột dựa trên vai trò
+    if ($id_vaitro == 1) {
+        $table = 'admin';
+        $id_column = 'id_admin';
+        $name_column = 'ten_admin';
+        $sql = "SELECT $id_column, id_vaitro, $name_column FROM $table WHERE username = ? AND password = ? LIMIT 1";
+    } elseif ($id_vaitro == 2) {
+        $table = 'nhanvien';
+        $id_column = 'id_nv';
+        $name_column = 'hoten_nhanvien';
+        $sql = "SELECT $id_column, id_vaitro, $name_column FROM $table WHERE username = ? AND password = ? LIMIT 1";
     } else {
-        // header("Location:dangnhap.php");
-        echo 'Tài khoản hoặc mật khẩu không đúng, vui lòng đăng nhập lại!';
+        $table = 'khachhang';
+        $id_column = 'id_khach';
+        $name_column = 'ten_khach';
+        $sql = "SELECT $id_column, id_vaitro, $name_column FROM $table WHERE username = ? AND password = ? LIMIT 1";
     }
+
+    $stmt = mysqli_prepare($mysqli, $sql);
+    mysqli_stmt_bind_param($stmt, 'ss', $username, $matkhau);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $count = mysqli_num_rows($result);
+
+    if ($count > 0) {
+        $row_data = mysqli_fetch_array($result);
+        $_SESSION['id_user'] = $row_data[$id_column];
+        $_SESSION['id_vaitro'] = $row_data['id_vaitro'];
+        $_SESSION['dangkyk'] = $row_data[$name_column];
+        $_SESSION['type_user'] = ($row_data['id_vaitro'] == 1) ? 'admin' : (($row_data['id_vaitro'] == 2) ? 'nhanvien' : 'khachhang');
+
+        // Điều hướng dựa trên vai trò
+        if ($_SESSION['id_vaitro'] == 3) {
+            // Khách hàng
+            header("Location: ../../index.php");
+        } else {
+            // Admin hoặc Nhân viên
+            header("Location: ../../admin/indexad.php");
+            if ($_SESSION['id_vaitro'] == 2) {
+                $_SESSION['message'] = "Bạn là Nhân viên, không có quyền quản lý nhân viên!";
+            }
+        }
+        exit();
+    } else {
+        echo '<p style="color:red">Tài khoản hoặc mật khẩu không đúng, vui lòng đăng nhập lại!</p>';
+    }
+    mysqli_stmt_close($stmt);
 }
 ?>
 
@@ -36,7 +73,6 @@ if (isset($_POST['dangnhap'])) {
         <div class="login-box">
             <h1>ĐĂNG NHẬP</h1>
             <div class="login-form">
-                <!-- <h2>login Now</h2> -->
                 <form method="POST">
                     <div class="input-box">
                         <input type="text" placeholder="Tên đăng nhập" required name="username"/>
@@ -45,6 +81,17 @@ if (isset($_POST['dangnhap'])) {
                     <div class="input-box">
                         <input type="password" placeholder="Mật Khẩu" required name="password"/>
                         <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="input-box">
+                        <select name="id_vaitro" required style="width: 100%; height: 40px; border-radius: 5px;">
+                            <?php
+                            $sql = "SELECT id, ten_vaitro FROM vaitro";
+                            $result = mysqli_query($mysqli, $sql);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['id'] . "'>" . htmlspecialchars($row['ten_vaitro']) . "</option>";
+                            }
+                            ?>
+                        </select>
                     </div>
                     <div class="links">
                         <a href="doimatkhau.php">Quên Mật Khẩu? <span>Click here</span></a>

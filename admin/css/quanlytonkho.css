@@ -1,0 +1,139 @@
+/* --- Giao diện tổng quát cho module tồn kho --- */
+.tonkho {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* --- Tiêu đề chung --- */
+.tieude-chitiet-tonkho,
+.tieude-danhsach-tonkho,
+.tieude-dieuchinh-tonkho {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* --- Bảng hiển thị --- */
+table.bang-chitiet-tonkho,
+table.bang-danhsach-tonkho,
+table.bang-dieuchinh-tonkho {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th,
+table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+/* --- Cột bảng nổi bật --- */
+table th {
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: 600;
+}
+
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* --- Cảnh báo số lượng thấp --- */
+.canhbao-thap {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+/* --- Cảnh báo không đồng bộ tồn kho --- */
+.canhbao-khongdongbo {
+    color: #e53935;
+    font-weight: bold;
+    background-color: #ffebee;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* --- Nút điều hướng --- */
+.nut-quaylai-tonkho,
+.nut-dieuchinh-tonkho,
+.nut-xemchitiet-tonkho {
+    display: inline-block;
+    padding: 10px 16px;
+    margin: 6px 4px;
+    background-color: #343A40;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.nut-quaylai-tonkho:hover,
+.nut-dieuchinh-tonkho:hover,
+.nut-xemchitiet-tonkho:hover {
+    background-color: #125a9c;
+}
+
+/* --- Form điều chỉnh tồn kho --- */
+.form-dieuchinh-tonkho input[type="number"],
+.form-dieuchinh-tonkho textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+}
+
+.nut-xacnhan-tonkho {
+    margin-top: 16px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #343A40;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.nut-xacnhan-tonkho:hover {
+    background-color: #2e7d32;
+}
+
+/* --- Tên trường và giá trị trong bảng form --- */
+.ten-truong-tonkho {
+    font-weight: bold;
+    width: 180px;
+    color: #444;
+}
+
+.gia-tri-truong-tonkho {
+    color: #222;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .tonkho {
+        padding: 16px;
+    }
+
+    table th, table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .tieude-chitiet-tonkho,
+    .tieude-danhsach-tonkho,
+    .tieude-dieuchinh-tonkho {
+        font-size: 20px;
+    }
+}

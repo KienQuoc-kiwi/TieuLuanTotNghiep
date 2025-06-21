@@ -1,3 +1,12 @@
+<?php
+// Bật hiển thị lỗi để debug
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Kết nối CSDL
+include('config/config.php');
+?>
+
 <section class="collection-tab-home">
     <div class="banner-layout">
         <!-- Slide bên trái -->
@@ -6,10 +15,6 @@
                 <div class="swiper-slide"><img src="img/banner-left1.png" alt=""></div>
                 <div class="swiper-slide"><img src="img/banner-left6.png" alt="lỗi"></div>
             </div>
-            <!-- Pagination & Navigation riêng (bỏ comment nếu cần) -->
-            <!-- <div class="swiper-pagination left-pagination"></div>
-            <div class="swiper-button-next left-next"></div>
-            <div class="swiper-button-prev left-prev"></div> -->
         </div>
 
         <!-- Banner trung tâm cố định -->
@@ -23,32 +28,32 @@
                 <div class="swiper-slide"><img src="img/banner-right3.png" alt=""></div>
                 <div class="swiper-slide"><img src="img/banner-right1.png" alt="lỗi"></div>
             </div>
-            <!-- Pagination & Navigation riêng (bỏ comment nếu cần) -->
-            <!-- <div class="swiper-pagination right-pagination"></div>
-            <div class="swiper-button-next right-next"></div>
-            <div class="swiper-button-prev right-prev"></div> -->
         </div>
     </div>
 
     <div class="sub-tab-collection">
         <div class="item-tab active" data-handle="litedash-sale-20" data-section="is-section-1" data-total="1"></div>
     </div>
+
     <div class="sectionContent">
-        <h2>BÁN CHẠY NHẤT</h2>
+        <h2>SẢN PHẨM</h2>
         <div class="row-edit">
             <div class="pro-loop">
                 <div class="horizontal-scroll-container">
                     <?php
                     $sql_pro = "SELECT * FROM sanpham, danhmuc WHERE sanpham.id_danhmuc = danhmuc.id_danhmuc ORDER BY sanpham.id_sanpham DESC LIMIT 25";
                     $query_pro = mysqli_query($mysqli, $sql_pro);
+                    if (!$query_pro) {
+                        die("Lỗi truy vấn (BÁN CHẠY NHẤT): " . mysqli_error($mysqli));
+                    }
                     while ($row = mysqli_fetch_array($query_pro)) {
                     ?>
                         <div class="product-card">
-                            <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>">
+                            <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>" style="text-decoration: none;">
                                 <img src="admin/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>" alt="hình lỗi">
                                 <p class="title_product"><?php echo $row['tensanpham'] ?></p>
                                 <p class="price_product"><?php echo number_format($row['giasp'], 0, ',', '.') . '₫' ?></p>
-                                <p style="text-align: center; color: green"><?php echo $row['tendanhmuc'] ?></p>
+                                <p style="text-align: center; color:#343A40"><?php echo $row['tendanhmuc'] ?></p>
                             </a>
                         </div>
                     <?php } ?>
@@ -60,44 +65,28 @@
 
 <div class="banner-above">
     <div class="banner-layout">
-        <!-- Slide bên trái -->
         <div class="banner-side swiper leftSwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="img/banner-left1.png" alt=""></div>
                 <div class="swiper-slide"><img src="img/banner-left5.png" alt="lỗi"></div>
             </div>
-            <!-- Pagination & Navigation riêng (bỏ comment nếu cần) -->
-            <!-- <div class="swiper-pagination left-pagination"></div>
-            <div class="swiper-button-next left-next"></div>
-            <div class="swiper-button-prev left-prev"></div> -->
         </div>
 
-        <!-- Banner trung tâm -->
         <div class="banner-side swiper centerSwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="img/banner-left2.png" alt=""></div>
                 <div class="swiper-slide"><img src="img/banner-right2.png" alt="lỗi"></div>
             </div>
-            <!-- Pagination & Navigation riêng (bỏ comment nếu cần) -->
-            <!-- <div class="swiper-pagination left-pagination"></div>
-            <div class="swiper-button-next left-next"></div>
-            <div class="swiper-button-prev left-prev"></div> -->
         </div>
 
-        <!-- Slide bên phải -->
         <div class="banner-side swiper rightSwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="img/banner-right3.png" alt=""></div>
                 <div class="swiper-slide"><img src="img/banner-right1.png" alt="lỗi"></div>
             </div>
-            <!-- Pagination & Navigation riêng (bỏ comment nếu cần) -->
-            <!-- <div class="swiper-pagination right-pagination"></div>
-            <div class="swiper-button-next right-next"></div>
-            <div class="swiper-button-prev right-prev"></div> -->
         </div>
     </div>
 </div>
-
 
 <div class="pro-new">
     <h2>Sản phẩm mới</h2>
@@ -105,16 +94,26 @@
         <div class="pro-loop">
             <div class="horizontal-scroll-container">
                 <?php
-                $sql_pro = "SELECT * FROM sanphammoi, danhmuc WHERE sanphammoi.id_danhmuc = danhmuc.id_danhmuc ORDER BY sanphammoi.id_spmoi DESC LIMIT 25";
+                // Truy vấn sản phẩm thuộc danh mục con "Hàng mới về"
+                $sql_pro = "SELECT * FROM sanpham 
+                            INNER JOIN danhmuc ON sanpham.id_danhmuc = danhmuc.id_danhmuc 
+                            INNER JOIN danhmuccon ON sanpham.id_danhmuccon = danhmuccon.id_danhmuccon 
+                            WHERE danhmuccon.ten_danhmuccon LIKE 'Hàng Mới Về' OR danhmuccon.ten_danhmuccon LIKE 'Hàng mới về'
+                            ORDER BY sanpham.id_sanpham DESC 
+                            LIMIT 25";
+
                 $query_pro = mysqli_query($mysqli, $sql_pro);
+                if (!$query_pro) {
+                    die("Lỗi truy vấn (SẢN PHẨM MỚI): " . mysqli_error($mysqli));
+                }
                 while ($row = mysqli_fetch_array($query_pro)) {
                 ?>
                     <div class="product-card">
-                        <a href="index.php?quanly=sanphammoi&id=<?php echo $row['id_spmoi'] ?>">
-                            <img src="admin/modules/quanlyspmoi/uploads/<?php echo $row['hinhanh'] ?>" alt="hình lỗi">
-                            <p class="title_product"><?php echo $row['tenspmoi'] ?></p>
-                            <p class="price_product"><?php echo number_format($row['giaspmoi'], 0, ',', '.') . '₫' ?></p>
-                            <p style="text-align: center; color: green"><?php echo $row['tendanhmuc'] ?></p>
+                        <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>" style="text-decoration: none;">
+                            <img src="admin/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>" alt="hình lỗi">
+                            <p class="title_product"><?php echo $row['tensanpham'] ?></p>
+                            <p class="price_product"><?php echo number_format($row['giasp'], 0, ',', '.') . '₫' ?></p>
+                            <p style="text-align: center; color: #343A40"><?php echo $row['tendanhmuc'] ?></p>
                         </a>
                     </div>
                 <?php } ?>

@@ -1,0 +1,171 @@
+/* === CƠ BẢN === */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f6f8;
+  margin: 0;
+  padding: 0;
+  color: #212529;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* === TIÊU ĐỀ CHỨC NĂNG === */
+.tieude-chucnang {
+  font-size: 22px;
+  font-weight: bold;
+  color: #343a40;
+  margin: 30px auto 20px;
+  text-align: center;
+}
+
+/* === BẢNG LIỆT KÊ NHÂN VIÊN === */
+.bang-nhanvien {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  margin: 30px auto;
+  max-width: 1000px;
+}
+
+.bang-nhanvien__table th {
+  background-color: #e9ecef;
+  color: #343a40;
+  font-weight: 600;
+  padding: 12px 16px;
+  border-bottom: 2px solid #dee2e6;
+  text-align: center;
+}
+
+.bang-nhanvien__table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #dee2e6;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* === FORM SỬA NHÂN VIÊN === */
+.form-sua-nhanvien {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 20px auto 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.form-sua-nhanvien input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.form-sua-nhanvien input[type="text"]:focus {
+  border-color: #343a40;
+  outline: none;
+}
+
+.form-sua-nhanvien table th {
+  text-align: left;
+  padding: 10px 8px;
+  font-weight: 500;
+  width: 30%;
+}
+
+.form-sua-nhanvien table td {
+  padding: 10px 8px;
+}
+
+/* === FORM THÊM NHÂN VIÊN === */
+.form-them-nhanvien {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.form-them-nhanvien input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.form-them-nhanvien input[type="text"]:focus {
+  border-color: #343a40;
+  outline: none;
+}
+
+.form-nhanvien__table th {
+  text-align: left;
+  padding: 10px 8px;
+  font-weight: 500;
+  width: 30%;
+}
+
+.form-nhanvien__table td {
+  padding: 10px 8px;
+}
+
+/* === NÚT CHUNG === */
+.btn-nhanvien {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #343a40;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-sua:hover {
+  background-color: #ecad0d;
+}
+
+.btn-xoa:hover {
+  background-color: #ed4242;
+}
+/* === NÚT CHỨC NĂNG CỤ THỂ === */
+.btn-them {
+  margin: 0 auto;
+  display: block;
+  background-color: #343a40;
+}
+
+.btn-sua {
+  background-color: #343a40;
+}
+
+.btn-xoa {
+  background-color: #343a40;
+}
+
+/* Responsive - Nếu cần */
+@media (max-width: 768px) {
+  .bang-nhanvien, .form-sua-nhanvien, .form-them-nhanvien {
+    padding: 15px;
+    margin: 20px 10px;
+  }
+
+  .form-nhanvien__table th, .form-nhanvien__table td {
+    display: block;
+    width: 100%;
+  }
+
+  .form-nhanvien__table tr {
+    margin-bottom: 10px;
+  }
+}

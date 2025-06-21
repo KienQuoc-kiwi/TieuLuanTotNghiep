@@ -4,10 +4,11 @@ $sql_lietke_dh = "SELECT donhang.id_khach as idkhach, donhang.ma_giohang, khachh
 $query_lietke_dh = mysqli_query($mysqli, $sql_lietke_dh);
 
 ?>
-<div class="lietkedonhang">
-    <table>
+<div class="qldh-lietke-wrapper">
+    <table class="qldh-lietke-table">
+        <h2>Danh Sách Đơn Hàng</h2>
         <tr>
-            <th>Id</th>
+            <th>ID</th>
             <th>Mã đơn hàng</th>
             <th>Tên khách hàng</th>
             <th>Email</th>
@@ -20,7 +21,6 @@ $query_lietke_dh = mysqli_query($mysqli, $sql_lietke_dh);
         $i = 0;
         while ($row = mysqli_fetch_array($query_lietke_dh)) {
             $i++;
-
         ?>
             <tr>
                 <td><?php echo $i ?></td>
@@ -30,16 +30,13 @@ $query_lietke_dh = mysqli_query($mysqli, $sql_lietke_dh);
                 <td><?php echo $row['diachi'] ?></td>
                 <td><?php echo $row['dienthoai'] ?></td>
                 <td><?php echo $row['ngaytao'] ?></td>
-                <td>
-                    <a href="indexad.php?action=quanlydonhang&query=xemdonhang&code=<?php echo $row['ma_giohang'] ?>">Xem</a> |
-                    <a href="indexad.php?action=quanlydonhang&query=sua&code=<?php echo $row['ma_giohang'] ?>">Sửa</a> |
-                    <a onclick="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này?')"
+                <td class="qldh-action-links">
+                    <a class="qldh-btn qldh-xem" href="indexad.php?action=quanlydonhang&query=xemdonhang&code=<?php echo $row['ma_giohang'] ?>">Xem</a> |
+                    <a class="qldh-btn qldh-sua" href="indexad.php?action=quanlydonhang&query=sua&code=<?php echo $row['ma_giohang'] ?>">Sửa</a> |
+                    <a class="qldh-btn qldh-xoa" onclick="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này?')"
                         href="modules/quanlydonhang/xuly.php?xoa=1&code=<?php echo $row['ma_giohang'] ?>">Xóa</a>
                 </td>
-
             </tr>
-        <?php
-        }
-        ?>
+        <?php } ?>
     </table>
 </div>

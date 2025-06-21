@@ -1,0 +1,105 @@
+CREATE TABLE `admin` (
+  `id_admin` int(11) NOT NULL,
+  `ten_admin` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `diachi_admin` varchar(200) NOT NULL,
+  `dienthoai_admin` int(11) NOT NULL,
+  `id_vaitro` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `anhphu` (
+  `id_anhphu` int(11) NOT NULL,
+  `id_sanpham` int(11) NOT NULL,
+  `duong_dan` varchar(250) NOT NULL,
+  `thutu_hien_thi` int(11) DEFAULT 0,
+  `ngay_tao` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `bienthesanpham` (
+  `id_bienthe` int(11) NOT NULL,
+  `id_sanpham` int(11) NOT NULL,
+  `kichco` varchar(20) NOT NULL,
+  `mausac` varchar(30) NOT NULL,
+  `soluongtonkho` int(11) NOT NULL,
+  `madinhdanh` varchar(50) NOT NULL,
+  `hinhanh` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `binhluan` (
+  `id_binhluan` int(11) NOT NULL,
+  `id_khach` int(11) NOT NULL,
+  `id_sanpham` int(11) NOT NULL,
+  `noidung` varchar(10000) NOT NULL,
+  `ngaybinhluan` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `chitietdonhang` (
+  `id_chitietdonhang` int(11) NOT NULL,
+  `ma_giohang` varchar(11) NOT NULL,
+  `id_sanpham` int(11) NOT NULL,
+  `soluong` int(11) NOT NULL,
+  `id_bienthe` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `danhmuc` (
+  `id_danhmuc` int(11) NOT NULL,
+  `tendanhmuc` varchar(100) NOT NULL,
+  `thutu` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `danhmuccon` (
+  `id_danhmuccon` int(11) NOT NULL,
+  `id_danhmuc` int(11) DEFAULT NULL,
+  `ten_danhmuccon` varchar(100) NOT NULL,
+  `mota` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `donhang` (
+  `id_giohang` int(11) NOT NULL,
+  `id_khach` int(11) NOT NULL,
+  `ma_giohang` varchar(11) NOT NULL,
+  `trangthai` int(11) NOT NULL,
+  `ngaytao` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `khachhang` (
+  `id_khach` int(11) NOT NULL,
+  `ten_khach` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `diachi` varchar(200) NOT NULL,
+  `dienthoai` int(11) NOT NULL,
+  `id_vaitro` int(11) NOT NULL DEFAULT 3
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `nhanvien` (
+  `id_nv` int(11) NOT NULL,
+  `hoten_nhanvien` varchar(100) NOT NULL,
+  `gioitinh` varchar(10) NOT NULL,
+  `diachi` varchar(200) NOT NULL,
+  `sodienthoai` int(11) NOT NULL,
+  `id_vaitro` int(11) NOT NULL DEFAULT 2,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `sanpham` (
+  `id_sanpham` int(11) NOT NULL,
+  `tensanpham` varchar(250) NOT NULL,
+  `masp` varchar(100) NOT NULL,
+  `giasp` int(50) NOT NULL,
+  `soluong` int(11) NOT NULL,
+  `hinhanh` varchar(250) NOT NULL,
+  `tomtat` tinytext NOT NULL,
+  `noidung` text NOT NULL,
+  `tinhtrang` int(11) NOT NULL,
+  `id_danhmuc` int(11) NOT NULL,
+  `id_danhmuccon` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `vaitro` (
+  `id` int(11) NOT NULL,
+  `ten_vaitro` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+

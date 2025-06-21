@@ -1,0 +1,199 @@
+/* Giao diện tổng thể */
+body {
+    font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    color: #343A40;
+    line-height: 1.6;
+    padding-top: 80px;
+}
+
+/* Container chính */
+.quanly-danhmuc {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Tiêu đề */
+.quanly-danhmuc p {
+    font-size: 24px;
+    font-weight: 700;
+    color: #343A40;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #e9ecef;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+/* FORM THÊM DANH MỤC */
+.form-wrapper {
+    flex: 1;
+    min-width: 280px;
+}
+
+.form-danhmuc {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.form-danhmuc th {
+    text-align: left;
+    font-size: 16px;
+    color: #343A40;
+    padding-bottom: 10px;
+}
+
+.form-danhmuc td {
+    padding: 10px 0;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.form-danhmuc input[type="text"] {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+}
+
+.form-danhmuc input[type="text"]:focus {
+    border-color: #343A40;
+    box-shadow: 0 0 8px rgba(52, 58, 64, 0.2);
+    outline: none;
+}
+
+/* Nút submit */
+.nut-danhmuc-submit {
+    background-color: #343A40;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.nut-danhmuc-submit:hover {
+    background-color: #23272b;
+    transform: translateY(-2px);
+}
+
+.nut-danhmuc-submit:active {
+    transform: translateY(0);
+}
+
+/* DANH SÁCH DANH MỤC */
+.bang-wrapper {
+    flex: 1.5;
+    min-width: 400px;
+}
+
+.bang-danhmuc {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dee2e6;
+    background-color: #ffffff;
+}
+
+.bang-danhmuc th,
+.bang-danhmuc td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 14px;
+}
+
+.bang-danhmuc th {
+    background-color: #343A40;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bang-danhmuc tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Nút hành động (Sửa/Xóa) - Cập nhật giao diện màu */
+.nut-danhmuc {
+    display: flex;
+    gap: 10px;
+}
+
+.nut-danhmuc a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+}
+
+/* Nút Sửa và Xóa giống như ảnh: màu đen đậm */
+.nut-danhmuc .btn-sua,
+.nut-danhmuc .btn-xoa {
+    background-color: #343A40;
+}
+
+.nut-danhmuc .btn-sua:hover,
+.nut-danhmuc .btn-xoa:hover {
+    background-color: #23272b;
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .quanly-danhmuc {
+        padding: 20px;
+        margin: 10px;
+        flex-direction: column;
+    }
+
+    .bang-danhmuc th,
+    .bang-danhmuc td {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .form-danhmuc input[type="text"] {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .nut-danhmuc-submit {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nut-danhmuc {
+        flex-direction: column;
+    }
+
+    .nut-danhmuc a {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+}

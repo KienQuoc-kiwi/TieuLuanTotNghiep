@@ -54,10 +54,11 @@
 .title_product {
   font-weight: bold;
   margin-top: 8px;
+  color: #343A40;
 }
 
 .price_product {
-  color: red;
+  color: #343A40;
   font-weight: bold;
 }
 

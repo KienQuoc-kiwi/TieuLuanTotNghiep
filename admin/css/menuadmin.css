@@ -1,0 +1,120 @@
+/* Nút menu */
+.menu-toggle {
+    font-size: 22px;
+    color: #fff;
+    background-color: #343A40;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 15px;
+    z-index: 1002;
+    position: relative;
+    margin-top: -1px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #343A40;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 1001;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    padding-left: 70px;
+}
+
+.logo img {
+    height: 40px;
+    vertical-align: middle;
+}
+
+.logo span {
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Admin info */
+.admin-info {
+    font-size: 14px;
+}
+
+/* Sidebar */
+.menu#sidebarMenu {
+    width: 300px; /* ✅ Tăng độ rộng để chữ không bị xuống hàng */
+    background-color: #343A40;
+    height: 100vh;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Khi menu hiển thị */
+.menu#sidebarMenu.show {
+    transform: translateX(0);
+    height: 100%;
+}
+
+/* Logo trong menu */
+.menu#sidebarMenu > a img {
+    display: block;
+    margin: 20px auto 10px auto;
+    max-width: 80%;
+}
+
+/* Danh sách liên kết quản trị */
+.menu#sidebarMenu .admincp_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu#sidebarMenu .admincp_list li a {
+    display: block;
+    padding: 12px 24px; /* tăng padding cho thoáng hơn */
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap; /* ✅ Ngăn xuống hàng */
+    border-bottom: 1px solid #495057;
+    transition: background-color 0.2s;
+}
+.menu#sidebarMenu .admincp_list li a:hover {
+    background-color: #495057;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .logo {
+        padding-left: 20px;
+    }
+
+    .menu-toggle {
+        margin-right: 5px;
+    }
+
+    .logo span {
+        font-size: 12px;
+    }
+
+    .admin-info {
+        font-size: 12px;
+    }
+}

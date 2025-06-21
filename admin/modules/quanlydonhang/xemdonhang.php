@@ -1,5 +1,5 @@
 <?php
-$code = $_GET['code']; // mã đơn hàng (ma_giohang)
+$code = $_GET['code']; // mã đơn hàng
 
 // Lấy thông tin đơn hàng và khách hàng
 $sql_donhang = "
@@ -16,10 +16,7 @@ if (!$query_donhang) {
 }
 $row_donhang = mysqli_fetch_array($query_donhang);
 
-$query_donhang = mysqli_query($mysqli, $sql_donhang);
-$row_donhang = mysqli_fetch_array($query_donhang);
-
-// Lấy chi tiết sản phẩm trong đơn
+// Lấy chi tiết sản phẩm
 $sql_chitiet = "
     SELECT sanpham.tensanpham, sanpham.giasp, sanpham.hinhanh, 
            chitietdonhang.soluong
@@ -29,59 +26,77 @@ $sql_chitiet = "
 ";
 $query_chitiet = mysqli_query($mysqli, $sql_chitiet);
 
-// Tính tổng tiền
+// Khởi tạo mảng sản phẩm (tránh lỗi)
+$sanpham_rows = [];
 $tongtien = 0;
+while ($row = mysqli_fetch_array($query_chitiet)) {
+  $thanhtien = $row['giasp'] * $row['soluong'];
+  $tongtien += $thanhtien;
+  $row['thanhtien'] = $thanhtien;
+  $sanpham_rows[] = $row;
+}
 ?>
-<div class="xemdonhang">
-  <!-- Thông tin tổng quát -->
-  <div class="thongtindon">
+
+<div class="qldh-xem-wrapper">
+  <div class="qldh-thongtin">
     <h2>Chi tiết đơn hàng</h2>
-    <p><strong>Mã đơn hàng:</strong> <?php echo $row_donhang['ma_giohang']; ?></p>
-    <p><strong>Ngày đặt hàng:</strong> <?php echo date("d/m/Y", strtotime($row_donhang['ngaytao'])); ?></p>
-    <p><strong>Trạng thái:</strong> <?php echo $row_donhang['trangthai']; ?></p>
-    <p><strong>Người tạo đơn:</strong> <?php echo $row_donhang['ten_khach']; ?></p>
+    <p><strong>Mã đơn hàng:</strong> <?= $row_donhang['ma_giohang']; ?></p>
+    <p><strong>Ngày đặt hàng:</strong> <?= date("d/m/Y", strtotime($row_donhang['ngaytao'])); ?></p>
+    <p><strong>Trạng thái:</strong>
+      <?php if ($row_donhang['trangthai'] == 1): ?>
+        <span class="qldh-trangthai-daduyet">✔️ Đã được duyệt</span>
+      <?php else: ?>
+        <span class="qldh-trangthai-choduyet">⏳ Chờ duyệt</span>
+      <?php endif; ?>
+    </p>
+    <p><strong>Người tạo đơn:</strong> <?= $row_donhang['ten_khach']; ?></p>
     <p><strong>Ghi chú:</strong> Giao hàng trong giờ hành chính</p>
+    <p><strong>Tổng tiền:</strong> <span class="qldh-tongtien"><?= number_format($tongtien, 0, ',', '.') . 'đ'; ?></span></p>
 
     <?php
-    // Tính tổng tiền trước khi hiển thị
-    while ($row = mysqli_fetch_array($query_chitiet)) {
-      $thanhtien = $row['giasp'] * $row['soluong'];
-      $tongtien += $thanhtien;
-      $sanpham_rows[] = $row + ['thanhtien' => $thanhtien]; // lưu lại để hiển thị bảng bên dưới
+    if (isset($_POST['xacnhan'])) {
+      $sql_update = "UPDATE donhang SET trangthai = 1 WHERE ma_giohang = '$code'";
+      if (mysqli_query($mysqli, $sql_update)) {
+        header("Location: indexad.php?action=quanlydonhang&query=xemdonhang&code=$code");
+        exit;
+      } else {
+        echo "❌ Lỗi xác nhận đơn hàng: " . mysqli_error($mysqli);
+      }
     }
     ?>
-    <p><strong>Tổng tiền:</strong> <span class="tongtien"><?php echo number_format($tongtien, 0, ',', '.') . 'đ'; ?></span></p>
 
-    <!-- Nút hành động -->
-    <div class="btn-group">
+    <div class="qldh-nut-hanhdong">
       <button onclick="window.print()">🖨️ In hóa đơn</button>
-      <form method="POST" action="">
-        <input type="submit" name="xacnhan" value="✅ Xác nhận đơn hàng">
-      </form>
+      <?php if ($row_donhang['trangthai'] == 0): ?>
+        <form method="POST">
+          <input type="submit" name="xacnhan" value="✅ Xác nhận đơn hàng">
+        </form>
+      <?php else: ?>
+        <p><em>✔️ Đơn hàng đã được xác nhận.</em></p>
+      <?php endif; ?>
     </div>
-  </div>
 
-  <!-- Bảng sản phẩm -->
-  <table>
-    <thead>
-      <tr>
-        <th>Ảnh</th>
-        <th>Sản phẩm</th>
-        <th>Đơn giá</th>
-        <th>Số lượng</th>
-        <th>Thành tiền</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach ($sanpham_rows as $sp): ?>
+    <table class="qldh-bang-sanpham">
+      <thead>
         <tr>
-          <td><img src="modules/quanlysp/uploads/<?php echo $sp['hinhanh']; ?>" width="90"></td>
-          <td><?php echo $sp['tensanpham']; ?></td>
-          <td><?php echo number_format($sp['giasp'], 0, ',', '.') . 'đ'; ?></td>
-          <td><?php echo $sp['soluong']; ?></td>
-          <td><?php echo number_format($sp['thanhtien'], 0, ',', '.') . 'đ'; ?></td>
+          <th>Ảnh</th>
+          <th>Sản phẩm</th>
+          <th>Đơn giá</th>
+          <th>Số lượng</th>
+          <th>Thành tiền</th>
         </tr>
-      <?php endforeach; ?>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <?php foreach ($sanpham_rows as $sp): ?>
+          <tr>
+            <td><img src="modules/quanlysp/uploads/<?= $sp['hinhanh']; ?>" width="90"></td>
+            <td><?= $sp['tensanpham']; ?></td>
+            <td><?= number_format($sp['giasp'], 0, ',', '.') . 'đ'; ?></td>
+            <td><?= $sp['soluong']; ?></td>
+            <td><?= number_format($sp['thanhtien'], 0, ',', '.') . 'đ'; ?></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
 </div>

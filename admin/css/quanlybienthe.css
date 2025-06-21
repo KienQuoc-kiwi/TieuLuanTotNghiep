@@ -1,0 +1,127 @@
+/* File: quanlybienthe.css */
+
+:root {
+  --primary-color: #343A40;
+  --accent-color: #ffffff;
+  --hover-color: #495057;
+  --border-color: #dee2e6;
+  --radius: 8px;
+  --padding: 10px 15px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+  margin: 20px;
+}
+
+.container-bienthe {
+  max-width: 1000px;
+  margin: auto;
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-top: 35px;
+}
+
+.container-bienthe h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.container-bienthe a,
+.container-bienthe a:visited {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  padding: var(--padding);
+  border-radius: var(--radius);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 15px;
+  transition: background-color 0.3s;
+}
+
+.container-bienthe a:hover {
+  background-color: var(--hover-color);
+}
+
+.bienthe-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.bienthe-table th,
+.bienthe-table td {
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  text-align: center;
+}
+
+.bienthe-table th {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+}
+
+.bienthe-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.bienthe-form input[type="text"],
+.bienthe-form input[type="number"],
+.bienthe-form input[type="file"],
+.bienthe-form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
+}
+
+.bienthe-form input[type="submit"],
+.bienthe-form button {
+  margin-top: 15px;
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  border: none;
+  padding: var(--padding);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bienthe-form input[type="submit"]:hover,
+.bienthe-form button:hover {
+  background-color: var(--hover-color);
+}
+
+.bienthe-img {
+  margin-top: 10px;
+  max-width: 100px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+}
+
+.bienthe-form table {
+  width: 100%;
+  border-spacing: 0;
+  margin-top: 10px;
+}
+
+.bienthe-form table td {
+  padding: 10px;
+  vertical-align: top;
+}
+
+.bienthe-form hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 20px 0;
+}

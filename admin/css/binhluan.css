@@ -1,0 +1,97 @@
+/* === PHẦN BÌNH LUẬN === */
+.product-comments {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 20px auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.product-comments h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #343a40;
+  margin: 20px 0 15px;
+  text-align: center;
+}
+
+.product-comments textarea.content {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 15px;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.3s;
+}
+
+.product-comments textarea.content:focus {
+  border-color: #343a40;
+  outline: none;
+}
+
+.product-comments input[type="submit"] {
+  display: block;
+  margin: 10px auto;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #343a40;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-comments input[type="submit"]:hover {
+  background-color: #ecad0d;
+}
+
+.product-rating {
+  padding: 10px 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.product-rating strong {
+  color: #343a40;
+  font-weight: 600;
+}
+
+.product-rating em {
+  color: #6c757d;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.product-rating p {
+  margin: 5px 0 0;
+  font-size: 15px;
+  color: #212529;
+}
+
+.comment-login-notice {
+  text-align: center;
+  color: #ed4242;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.comment-login-notice a {
+  color: #343a40;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.comment-login-notice a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-comments {
+    padding: 15px;
+    margin: 20px 10px;
+  }
+}
